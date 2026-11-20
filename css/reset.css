@@ -1,0 +1,626 @@
+
+/*---------------- project_settings ----------------*/
+:root {
+    --header-height: 80px;
+    --content-edge: max(64px, (100vw - 1520px) / 2);
+    --body-line-height: 1.4;
+
+    --font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+    --body-color: var(--gray-600);
+    --body-bg: #fff;
+    --container-gutter: 60px;
+    --grid-gap: 30px;
+    --white: #fff;
+    /* Figma 확인 후 설정: --font-family, --container-ss/sm/md/lg,
+       --container-gutter, --grid-gap. 쓰는 항목만 정의한다.
+       컨테이너 변수는 패딩을 포함한 외곽 max-width를 의미한다. */
+
+    --gray-100: #F5F7F7;
+    --gray-200: #D2D7D7;
+    --gray-300: #B8BEBE;
+    --gray-400: #707676;
+    --gray-500: #4D5353;
+    --gray-600: #252D2C;
+
+    --primary: #114D49;
+
+    --white-50: rgba(255, 255, 255, .05);
+    --white-100: rgba(255, 255, 255, .1);
+    --white-200: rgba(255, 255, 255, .2);
+    --white-300: rgba(255, 255, 255, .3);
+    --white-400: rgba(255, 255, 255, .4);
+    --white-500: rgba(255, 255, 255, .5);
+    --white-600: rgba(255, 255, 255, .6);
+    --white-700: rgba(255, 255, 255, .7);
+    --white-800: rgba(255, 255, 255, .8);
+    --white-900: rgba(255, 255, 255, .9);
+
+    --black-50: rgba(0, 0, 0 , .05);
+    --black-100: rgba(0, 0, 0 , .1);
+    --black-200: rgba(0, 0, 0 , .2);
+    --black-300: rgba(0, 0, 0 , .3);
+    --black-400: rgba(0, 0, 0 , .4);
+    --black-500: rgba(0, 0, 0 , .5);
+    --black-600: rgba(0, 0, 0 , .6);
+    --black-700: rgba(0, 0, 0 , .7);
+    --black-800: rgba(0, 0, 0 , .8);
+    --black-900: rgba(0, 0, 0 , .9);
+
+    --container-sm: 848px;
+    --container-md: 0px; 
+    --container-lg: 1568px;
+
+    --radius: 0px;
+
+    --thin: 100;
+    --extra-light: 200;
+    --light: 300;
+    --normal: 400;
+    --medium: 500;
+    --semi-bold: 600;
+    --bold: 700;
+    --extra-bold: 800;
+    --black: 900;
+
+    --ft12: 0.75rem;
+    --ft14: 0.875rem;
+    --ft15: 0.938rem;
+    --ft16: 1rem;
+    --ft17: 1.0625rem;
+    --ft18: 1.125rem;
+    --ft20: 1.25rem;
+    --ft22: 1.375rem;
+    --ft24: 1.5rem;
+    --ft26: 1.625rem;
+    --ft28: 1.75rem;
+    --ft30: 1.875rem;
+    --ft32: 2rem;
+    --ft35: 2.188rem;
+    --ft36: 2.25rem;
+    --ft40: 2.5rem;
+    --ft42: 2.625rem;
+    --ft45: 2.813rem;
+    --ft48: 3rem;
+    --ft50: 3.125rem;
+    --ft56: 3.5rem;
+    --ft60: 3.75rem;
+    --ft70: 4.375rem;
+    --ft80: 5rem;
+    --ft100: 6.25rem;
+    --ft150: 9.375rem;
+
+    /* Responsive text sizes, named for their desktop size. */
+    --text-18: var(--ft18);
+    --text-20: var(--ft20);
+    --text-22: var(--ft22);
+    --text-24: var(--ft24);
+    --text-26: var(--ft26);
+    --text-28: var(--ft28);
+    --text-32: var(--ft32);
+    --text-36: var(--ft36);
+    --text-40: var(--ft40);
+    --text-45: var(--ft45);
+    --text-60: var(--ft60);
+    --text-80: var(--ft80);
+}
+
+/*---------------- reset ----------------*/
+:lang(ko) {
+    word-break: keep-all;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    font-family: var(--font-family);
+    font-size: var(--text-20);
+    font-weight: var(--normal);
+    line-height: var(--body-line-height);
+    color: var(--body-color);
+    background-color: var(--body-bg);
+}
+figure {
+    margin: 0;
+    object-fit: cover;
+}
+
+figure > picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: inherit;
+    object-position: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: inherit;
+    object-position: inherit;
+    border-radius: inherit;
+    user-select: none;
+}
+a {
+    display: block;
+    width: auto;
+    height: auto;
+    text-decoration: none;
+    color: inherit;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    white-space: pre-line;
+}
+p,
+span {
+    white-space: pre-line;
+}
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+button {
+    border: 0;
+    cursor: pointer;
+    background: none;
+}
+button:disabled {
+    cursor: not-allowed;
+}
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+/*---------------- base_typography ----------------*/
+time {
+    display: block;
+    color: var(--gray-500);
+    font-size: var(--text-18);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+button,
+a,
+input,
+textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 5px;
+}
+
+/*---------------- layout ----------------*/
+.wrap,
+.page {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+section {
+    width: 100%;
+    position: relative;
+}
+footer {
+    width: 100%;
+}
+.container,
+.container-ss,
+.container-sm,
+.container-md,
+.container-lg {
+    width: 100%;
+    margin: 0 auto;
+    padding-inline: var(--container-gutter);
+    position: relative;
+}
+.container-ss {
+    max-width: var(--container-ss);
+}
+.container-sm {
+    max-width: var(--container-sm);
+}
+.container-md {
+    max-width: var(--container-md);
+}
+.container-lg {
+    max-width: var(--container-lg);
+}
+
+/*---------------- utility ----------------*/
+.overflow {
+    overflow: hidden;
+}
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ellipsis.line2,
+.ellipsis.line3,
+.ellipsis.line4 {
+    overflow-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.ellipsis.line2 {
+    -webkit-line-clamp: 2;
+}
+.ellipsis.line3 {
+    -webkit-line-clamp: 3;
+}
+.ellipsis.line4 {
+    -webkit-line-clamp: 4;
+}
+.text-left {
+    text-align: start;
+}
+.text-center {
+    text-align: center;
+}
+.pre-line {
+    white-space: pre-line;
+}
+.underline {
+    text-decoration: underline;
+}
+.scroll_hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.scroll_hide::-webkit-scrollbar {
+    display: none;
+}
+.grid {
+    width: 100%;
+    display: grid;
+    gap: var(--grid-gap);
+}
+.grid.col-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid.col-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid.col-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid.col-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid.col-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.align-end {
+    align-items: flex-end;
+}
+.align-start {
+    align-items: flex-start;
+}
+.align-center {
+    align-items: center;
+}
+.align-stretch {
+    align-items: stretch;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+.justify-start {
+    justify-content: flex-start;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.justify-stretch {
+    justify-content: stretch;
+}
+.justify-center {
+    justify-content: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+select,
+input,
+input[type="text"],
+input[type="email"],
+input[type="file"],
+input[type="number"],
+input[type="password"],
+input[type="textarea"],
+textarea {
+    width: 100%;
+    border-radius: 0;
+    padding: 0;
+    border: 0;
+    font-size: var(--text-18);
+    color: var(--gray-600);
+    resize: vertical;
+    background: none;
+}
+
+input::placeholder {
+    color: var(--gray-400);
+}
+input::-webkit-search-cancel-button,
+input::-webkit-search-decoration,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}
+
+select:focus,
+input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="file"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="textarea"]:focus,
+textarea:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/*---------------- lenis ----------------*/
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* pagination */
+.pagination {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination .pagination_btn {
+    width: 32px;
+    height: 32px;
+}
+.pagination .pagination_btn a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination ul {
+    display: flex;
+    gap: 10px;
+    padding: 0 10px;
+}
+.pagination ul li {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    transition: background .4s ease;
+}
+.pagination ul li a {
+    width: 100%;
+    height: 100%;
+    font-size: var(--ft16);
+    color: var(--gray-400);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color .4s ease;
+}
+.pagination i {
+    font-size: var(--ft14);
+    color: var(--gray-400);
+}
+.pagination span {
+    font-size: var(--ft18);
+    color: var(--gray-400);
+}
+.pagination ul li:hover,
+.pagination ul li.page_click {
+    background-color: var(--primary);
+}
+.pagination ul li:hover a,
+.pagination ul li.page_click a {
+    color: var(--white);
+}
+
+/* 각 조건 안에는 project_settings → layout → 해당 컴포넌트 순으로 모은다. */
+
+@media all and (max-width: 1800px) {
+    .container_lg,
+    .container_md {
+        padding: 0 60px;
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .container_lg,
+    .container_md {
+        padding: 0 40px;
+    }
+}
+
+@media all and (max-width: 768px)  {
+
+    .container_lg,
+    .container_md,
+    .container_sm {
+        padding: 0 16px;
+    }
+
+    .pagination {
+        margin-top: 50px;
+    }
+    .pagination .pagination_btn {
+        width: 28px;
+        height: 28px;
+    }
+    .pagination ul li {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: var(--ft24);  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+/*---------------- pagination_font ----------------*/
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    src: url('/senior-bizon/fonts/material-symbols-outlined.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: block;
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--ft20);
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.pagination [aria-disabled='true'] {
+    color: var(--gray-300);
+    cursor: default;
+}
+
+/*---------------- base_typography_responsive ----------------*/
+@media (max-width: 1600px) {
+    :root {
+        --text-20: var(--ft18);
+        --text-22: var(--ft20);
+        --text-24: var(--ft22);
+        --text-26: var(--ft24);
+        --text-28: var(--ft26);
+        --text-32: var(--ft30);
+        --text-36: var(--ft32);
+        --text-40: var(--ft36);
+        --text-45: var(--ft40);
+        --text-60: var(--ft50);
+        --text-80: var(--ft70);
+    }
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --container-gutter: 40px;
+        --text-18: var(--ft17);
+        --text-22: var(--ft18);
+        --text-24: var(--ft20);
+        --text-26: var(--ft22);
+        --text-28: var(--ft24);
+        --text-32: var(--ft26);
+        --text-36: var(--ft28);
+        --text-40: var(--ft32);
+        --text-45: var(--ft36);
+        --text-60: var(--ft40);
+        --text-80: var(--ft50);
+    }
+}
+
+@media (max-width: 1000px) {
+    :root {
+        --header-height: 80px;
+    }
+}
+@media (max-width: 768px) {
+    :root {
+        --header-height: 66px;
+        --content-edge: 20px;
+        --container-gutter: 20px;
+        --text-18: var(--ft16);
+        --text-20: var(--ft16);
+        --text-22: var(--ft16);
+        --text-24: var(--ft18);
+        --text-26: var(--ft18);
+        --text-28: var(--ft20);
+        --text-32: var(--ft22);
+        --text-36: var(--ft22);
+        --text-40: var(--ft24);
+        --text-45: var(--ft24);
+        --text-60: var(--ft26);
+        --text-80: var(--ft28);
+    }
+}

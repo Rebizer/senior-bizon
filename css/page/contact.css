@@ -1,0 +1,427 @@
+/*---------------- contact ----------------*/
+
+.page_intro {
+    padding-bottom: 60px;
+}
+.page_title {
+    font-size: var(--text-60);
+}
+
+
+/*-- contact_type_list --*/
+.contact_type_list {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 30px;
+}
+.contact_type_list > button {
+    position: relative;
+    padding: 50px;
+    padding-bottom: 140px;
+    background: var(--gray-100);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    text-align: left;
+    transition: border .4s ease, background .4s ease, box-shadow .4s ease;
+}
+.contact_type_list .contact_type_list_title {
+    font-size: var(--text-28);
+}
+.contact_type_list .contact_type_list_desc {
+    font-size: var(--text-20);
+    margin-top: 24px;
+}
+.choice_arrow {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    background: var(--gray-100);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+.contact_type_list > button:hover,
+.contact_type_list > button[aria-selected=true] {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 4px 20px var(--black-100);
+}
+.contact_type_list > button:hover .choice_arrow,
+.contact_type_list > button[aria-selected=true] .choice_arrow {
+    opacity: 1;
+}
+
+/*-- general_inquiry --*/
+.general_inquiry {
+    margin-top: 50px;
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    background: var(--primary);
+    border-radius: 20px;
+}
+.general_inquiry .general_inquiry_desc {
+    color: #fff;
+    font-size: var(--text-24);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.general_inquiry .general_inquiry_desc strong {
+    font-weight: var(--semi-bold);
+}
+.general_inquiry .general_inquiry_desc span {
+    display: block;
+    width: 1px;
+    height: 16px;
+    background-color: var(--white-300);
+}
+.general_inquiry .action_btn {
+    border: 0;
+}
+
+
+/*-- inquiry_sec --*/
+.inquiry_sec {
+    margin-top: 180px;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    gap: 120px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.inquiry_intro {
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    left: 0;
+}
+.inquiry_intro .inquiry_intro_title {
+    font-size: var(--text-45);
+}
+.inquiry_intro .inquiry_intro_desc {
+    margin-top: 32px;
+    font-size: var(--text-22);
+}
+
+.inquiry_form {
+    min-width: 0;
+}
+
+.inquiry_form > label,
+.product_field > label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: var(--semi-bold);
+}
+
+.inquiry_form label > span,
+.inquiry_form legend > span {
+    color: var(--primary);
+    margin-left: 8px;
+}
+
+.inquiry_form > input,
+.inquiry_form textarea,
+.product_field > input {
+    display: block;
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 26px 36px;
+    border: 0;
+    border-radius: 16px;
+    background: var(--gray-100);
+}
+
+.inquiry_form textarea {
+    height: 200px;
+    resize: vertical;
+}
+
+.education_fields {
+    border: 0;
+    margin-bottom: 60px;
+}
+
+.education_fields legend {
+    margin-bottom: 20px;
+    font-weight: var(--semi-bold);
+}
+
+.topic_choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.topic_choices label {
+    position: relative;
+}
+
+.topic_choices input {
+    position: absolute;
+    opacity: 0;
+}
+
+.topic_choices label > span {
+    display: block;
+    padding: 24px;
+    margin: 0;
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    text-align: center;
+    color: var(--gray-500);
+    cursor: pointer;
+}
+
+.topic_choices input:checked + span {
+    border-color: var(--primary);
+    color: var(--primary);
+    font-weight: var(--semi-bold);
+}
+
+.topic_choices input:focus-visible + span {
+    outline: 3px solid var(--primary);
+}
+
+.consent_row {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--gray-400);
+}
+.consent_row label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.consent_row label > span {
+    color: var(--gray-400);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.consent_row input {
+    accent-color: var(--primary);
+    width: 20px;
+    height: 20px;
+    flex: none;
+}
+.consent_row > a {
+    white-space: nowrap;
+    text-decoration: underline;
+}
+
+.form_submit {
+    width: 100%;
+    min-height: 80px;
+    margin-top: 80px;
+    border-radius: 16px;
+    font-size: var(--text-20);
+}
+
+.form_status {
+    margin-top: 20px;
+}
+
+.inquiry_loading {
+    position: fixed;
+    z-index: 90;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: var(--black-300);
+}
+
+.inquiry_loading_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 32px;
+    border-radius: 20px;
+    background: var(--white);
+}
+
+.inquiry_loading_spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--gray-200);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: inquiry_spin .7s linear infinite;
+}
+
+.inquiry_loading_text {
+    color: var(--gray-600);
+    font-size: var(--text-18);
+    font-weight: var(--medium);
+}
+
+/*---------------- 반응형 ----------------*/
+@media (max-width: 1600px) {
+    .contact_type_list > button {
+        padding: 36px;
+        padding-bottom: 90px;
+    }
+
+    .inquiry_sec {
+        grid-template-columns: 40% 1fr;
+        gap: 80px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .contact_type_list {
+        gap: 16px;
+    }
+
+    .contact_type_list > button {
+        padding: 28px;
+        padding-bottom: 90px;
+    }
+
+    .contact_type_list .contact_type_list_title {
+        font-size: min(var(--ft22), var(--text-28));
+    }
+
+    .general_inquiry {
+        padding: 32px;
+    }
+
+    .inquiry_sec {
+        gap: 50px;
+    }
+
+    .inquiry_intro .inquiry_intro_title {
+        font-size: min(var(--ft32), var(--text-45));
+    }
+
+    .inquiry_form > input, .inquiry_form textarea, .product_field > input {
+        padding: 20px 24px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .contact_type_list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .page_intro {
+        padding-bottom: 40px;
+    }
+    .contact_type_list {
+        gap: 12px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .contact_type_list > button {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+    .contact_type_list .contact_type_list_title {
+        font-size: var(--ft18);
+    }
+    .contact_type_list .contact_type_list_desc {
+        font-size: var(--ft15);
+        margin-top: 18px;
+    }
+
+    .general_inquiry .general_inquiry_desc {
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+    }
+    .general_inquiry .general_inquiry_desc span {
+        display: none;
+    }
+
+    .choice_arrow {
+        display: none;
+    }
+
+    .inquiry_intro {
+        position: static;
+    }
+
+    .general_inquiry {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        padding: 28px 24px;
+        margin-top: 24px;
+    }
+
+    .inquiry_sec {
+        margin-top: 60px;
+        padding-top: 50px;
+        padding-bottom: 40px;
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .inquiry_intro .inquiry_intro_desc {
+        margin-top: 24px;
+    }
+
+    .inquiry_form > label,
+    .product_field > label {
+        margin-bottom: 14px;
+    }
+
+    .inquiry_form > input,
+    .inquiry_form textarea,
+    .product_field > input {
+        padding: 20px;
+        margin-bottom: 32px;
+        border-radius: 12px;
+    }
+
+    .inquiry_form textarea {
+        height: 180px;
+    }
+
+    .education_fields {
+        margin-bottom: 36px;
+    }
+
+    .topic_choices label > span {
+        padding: 20px 10px;
+        font-size: var(--ft15);
+        border-radius: 12px;
+    }
+
+    .consent_row {
+        font-size: var(--ft14);
+        gap: 10px;
+    }
+
+    .consent_row label {
+        gap: 8px;
+    }
+
+    .form_submit {
+        min-height: 64px;
+        margin-top: 40px;
+    }
+}
+
+@keyframes inquiry_spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

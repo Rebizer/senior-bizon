@@ -1,0 +1,127 @@
+/*---------------- 게시판 목록 공통 ----------------*/
+.listing_sec {
+    padding-top: 150px;
+    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    gap: 100px;
+}
+
+.listing_sec .listing_sec_title {
+    font-size: var(--text-60);
+}
+
+.listing_sec .search_form {
+    margin-top: 60px;
+}
+
+.listing_sec > * {
+    min-width: 0;
+}
+
+/*---------------- 공지사항 목록 ----------------*/
+.notice_list article {
+    border-bottom: 1px solid var(--gray-200);
+}
+.notice_list article a {
+    padding-block: 32px;
+}
+.notice_list article:first-child a {
+    padding-top: 24px;
+}
+.notice_list .notice_list_title {
+    font-size: var(--text-20);
+    transition: color .4s ease;
+}
+.notice_list time {
+    margin-top: 24px;
+}
+
+.notice_list article a:hover .notice_list_title {
+    color: var(--primary);
+}
+
+/*---------------- 인사이트 목록 ----------------*/
+.insight_grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 60px 30px;
+}
+.insight_thumbnail {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: box-shadow .4s ease;
+}
+.insight_thumbnail img {
+    transition: transform .4s ease;
+}
+.insight_grid .insight_grid_title {
+    font-size: var(--text-20);
+    margin-top: 24px;
+    transition: color .4s ease;
+}
+.insight_grid time {
+    margin-top: 20px;
+}
+
+
+.insight_grid a:hover .insight_thumbnail {
+    box-shadow: 0 4px 10px var(--black-100);
+}
+.insight_grid a:hover .insight_thumbnail img {
+    transform: scale(1.05);
+}
+.insight_grid a:hover .insight_grid_title {
+    color: var(--primary);
+}
+
+/*---------------- 반응형 ----------------*/
+@media (max-width: 1600px) {
+    .listing_sec {
+        padding-top: 100px;
+        grid-template-columns: 32% 1fr;
+        gap: 80px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .listing_sec {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .listing_sec {
+        grid-template-columns: minmax(0,1fr);
+        gap: 36px;
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    .listing_sec .search_form {
+        width: 100%;
+        margin-top: 28px;
+    }
+
+    .notice_list time {
+        font-size: var(--ft15);
+        margin-top: 16px;
+    }
+
+    .insight_grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .insight_grid .insight_grid_title {
+        margin-top: 20px;
+    }
+
+    .insight_grid time {
+        font-size: var(--ft15);
+        margin-top: 14px;
+    }
+}
