@@ -1,0 +1,13 @@
+{
+    "name": "시니어비즈온",
+    "short_name": "시니어비즈온",
+    "display": "standalone",
+    "description": "자격과 시험 준비, 무료 창업교육, 실버 헬스케어와 파트너 활동을 안내하는 시니어비즈온입니다.",
+    "icons": [
+        {
+            "src": "/android-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

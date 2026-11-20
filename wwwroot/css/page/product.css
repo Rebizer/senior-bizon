@@ -1,0 +1,111 @@
+/*---------------- 제품 상세 ----------------*/
+.product_detail {
+    padding-top: 110px;
+    padding-bottom: 80px;
+}
+
+.product_detail > .breadcrumb {
+    justify-content: flex-end;
+}
+
+.product_detail_grid {
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    gap: 120px;
+    align-items: start;
+}
+
+.detail_product {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+.product_category {
+    color: var(--primary);
+    font-size: var(--text-22);
+    font-weight: var(--semi-bold);
+}
+.product_detail .product_detail_grid_title {
+    font-size: var(--text-60);
+    font-weight: var(--semi-bold);
+    margin-top: 16px;
+}
+.product_detail_grid > div > .product_detail_grid_desc {
+    font-size: var(--text-22);
+    margin-top: 50px;
+}
+
+.product_detail_grid .button_row {
+    margin-top: 90px;
+}
+
+/*-- notice_box --*/
+.product_detail .notice_box {
+    margin-top: 62px;
+    padding: 80px;
+    text-align: center;
+}
+.product_detail .notice_box .notice_box_title {
+    font-size: var(--text-24);
+}
+.product_detail .notice_box .notice_box_desc {
+    margin-top: 28px;
+}
+
+/*---------------- 반응형 ----------------*/
+@media (max-width: 1600px) {
+    .product_detail {
+        padding-top: 60px;
+    }
+    .product_detail_grid {
+        grid-template-columns: 43% 1fr;
+        gap: 80px;
+    }
+
+    .detail_product {
+        height: auto;
+        aspect-ratio: 1;
+    }
+}
+
+@media (max-width: 1000px) {
+    .product_detail_grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product_detail {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .product_detail > .breadcrumb {
+        justify-content: start;
+    }
+
+    .product_detail_grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .detail_product {
+        max-height: 400px;
+        object-fit: contain;
+    }
+
+    .product_detail_grid > div > .product_detail_grid_desc:not(.product_category) {
+        font-size: var(--ft16);
+        margin-top: 24px;
+    }
+
+    .product_detail_grid .button_row {
+        margin-top: 32px;
+        flex-direction: column;
+    }
+
+    .product_detail .notice_box {
+        margin-top: 50px;
+        padding: 32px 24px;
+    }
+
+}

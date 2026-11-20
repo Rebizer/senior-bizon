@@ -1,0 +1,412 @@
+@{
+    // 운영 도메인 확정 후 배포 주소를 검토합니다. 쿼리 문자열은 대표 주소에서 제외합니다.
+    var realUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var currentUrl = $"{realUrl}/";
+
+    var pageTitle = "시니어비즈온";
+    var pageDescription = "자격과 시험 준비, 무료 창업교육, 실버 헬스케어와 파트너 활동을 안내하는 시니어비즈온입니다.";
+    var pageName = "시니어비즈온";
+    var serviceItems = new[]
+    {
+        new { Title = "자영업지도사", Description = "자영업자의 가게 운영을 돕고 싶다면, 자영업지도사부터 알아보세요.\n어떤 지식이 필요한지 시험 과목을 보며 준비할 수 있어요.", Image = "/images/service_1.png", ImageAlt = "자영업자의 가게 운영을 상담하는 두 사람", Url = "/qualification/index", Link = "자영업지도사 알아보기", Type = "exam", Action = "응시 안내 신청하기" },
+        new { Title = "창업교육", Description = "창업과 사업 운영에 필요한 정책 정보를 알아보고,\n나의 경험을 활용할 수 있는 활동의 방향을 생각해 봅니다.", Image = "/images/service_2.png", ImageAlt = "창업과 가게 운영에 필요한 정보를 배우는 교육 현장", Url = "/education/index", Link = "창업교육 알아보기", Type = "education", Action = "무료교육 신청하기" },
+        new { Title = "실버 헬스케어 파트너", Description = "생활과 건강 관리에 필요한 제품을 알아보고,\n다른 사람에게 필요한 정보를 안내하는 활동을 살펴보세요.", Image = "/images/service_3.png", ImageAlt = "헬스케어 제품을 소개하는 시니어비즈온 파트너", Url = "/partner/index", Link = "파트너 활동 알아보기", Type = "partner", Action = "파트너 참여 신청하기" }
+    };
+    var productItems = new[]
+    {
+        new { Title = "나와모 에스오디 미라클 샴푸", Image = "/images/home-product-shampoo.png", ImageAlt = "나와모 에스오디 미라클 샴푸 관련 이미지", Summary = "탈모 증상 완화 기능성 화장품" },
+        new { Title = "나와모 에스오디 퍼펙트 트리트먼트", Image = "/images/home-product-treatment.png", ImageAlt = "나와모 에스오디 퍼펙트 트리트먼트 관련 이미지", Summary = "샴푸 후 모발 관리" },
+        new { Title = "나와모 에스오디 울트라 부스터", Image = "/images/home-product-booster.png", ImageAlt = "나와모 에스오디 울트라 부스터 관련 이미지", Summary = "탈모 증상 완화 기능성 화장품" },
+        new { Title = "닥터88", Image = "/images/healthcare-doctor88.png", ImageAlt = "닥터88 관련 이미지", Summary = "초음파 의료기기" },
+        new { Title = "닥터에스오디 이뮨 플러스", Image = "/images/healthcare-immun-plus.png", ImageAlt = "닥터에스오디 이뮨 플러스 관련 이미지", Summary = "건강기능식품" },
+        new { Title = "일공일공 이미지 플러스", Image = "/images/healthcare-image-plus.png", ImageAlt = "일공일공 이미지 플러스 관련 이미지", Summary = "미백·주름개선 2중 기능성 화장품" },
+        new { Title = "우레탄탄소블랙써니", Image = "/images/healthcare-carbon-mat.png", ImageAlt = "우레탄탄소블랙써니 관련 이미지", Summary = "우레탄 탄소 전기매트" }
+    };
+    var insightItems = new[]
+    {
+        new { Title = "처음 가게를 열기 전, 어떤 비용부터 계산해야 할까요?", Image = "/images/insight-startup-costs.png", ImageAlt = "처음 가게를 열기 전, 어떤 비용부터 계산해야 할까요? 관련 이미지" },
+        new { Title = "창업 지원사업 공고에서 꼭 확인할 세 가지", Image = "/images/insight-startup-policy.png", ImageAlt = "창업 지원사업 공고에서 꼭 확인할 세 가지 관련 이미지" },
+        new { Title = "가게를 운영할 때 매출과 함께 봐야 할 숫자들", Image = "/images/insight-business-finances.png", ImageAlt = "가게를 운영할 때 매출과 함께 봐야 할 숫자들 관련 이미지" },
+        new { Title = "가게 운영 상담을 받기 전에 무엇을 준비하면 좋을까요?", Image = "/images/insight-business-consultation.png", ImageAlt = "가게 운영 상담을 받기 전에 무엇을 준비하면 좋을까요? 관련 이미지" }
+    };
+    var newsItems = new[]
+    {
+        new { Title = "자영업지도사 응시 신청 안내" },
+        new { Title = "시니어비즈온 창업교육 과목별 상시 신청 안내" },
+        new { Title = "시니어비즈온 헬스케어 파트너 상시 모집 안내" },
+        new { Title = "공지사항 제목을 입력해 주세요" }
+    };
+
+}
+@section meta {
+    <!-- basic -->
+    <title>@pageTitle</title>
+    <meta name="Title" content="@pageTitle" />
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="@pageDescription">
+    <meta name="application-name" content="@pageName" />
+    <meta name="robots" content="index,follow" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="@pageName">
+}
+
+@section ogtags {
+    <!-- naver, facebook -->
+    <meta property="og:image" content="@(realUrl)/images/home-hero-qualification.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@pageName">
+    <meta property="og:title" content="@pageTitle">
+    <meta property="og:description" content="@pageDescription">
+    <meta property="og:url" content="@currentUrl">
+
+    <!-- twitter -->
+    <meta name="twitter:image" content="@(realUrl)/images/home-hero-qualification.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section schema {
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "WebPage",
+            "name": "@pageTitle",
+            "description": "@pageDescription",
+            "url": "@currentUrl"
+        }
+    </script>
+}
+
+@section headtag {
+    @Html.Raw((string?)ViewBag.HeadTag ?? string.Empty)
+}
+
+@section headtagnext {
+    @Html.Raw((string?)ViewBag.HeadNextTag ?? string.Empty)
+}
+
+@section scripttag {
+    @Html.Raw((string?)ViewBag.ScriptTag ?? string.Empty)
+}
+
+@section scripts{
+    <script src="~/js/page/home.js" asp-append-version="true"></script>
+}
+@section css{
+    <link rel="stylesheet" href="~/css/page/home.css" asp-append-version="true" />
+}
+
+
+<main id="main_content">
+    <section class="home_hero" aria-label="주요 서비스">
+        <div class="hero_slides swiper">
+            <div class="swiper-wrapper">
+                <article class="hero_slide swiper-slide">
+                    <figure class="home_hero_image">
+                        <img src="/images/home-hero-qualification.png" alt="자영업지도사 시험을 준비하며 책을 읽는 시니어 여성" fetchpriority="high">
+                    </figure>
+                    <div class="hero_copy">
+                        <h1 class="hero_title page_title">자영업지도사,
+                            시험 준비의 첫걸음부터.</h1>
+                        <p class="hero_desc body_text">자격 내용과 시험 과목을 살펴보고,
+                            응시 준비 방법을 안내받으세요.</p>
+                    </div>
+                    <div class="hero_promotion">
+                        <figure class="promotion_portrait_box">
+                            <img src="/images/qualification-advisor-portrait.png" alt="시니어비즈온 안내 담당자" loading="lazy">
+                        </figure>
+                        <div class="promotion_copy">
+                            <h2 class="promotion_title section_title">자영업지도사 응시 희망자 모집</h2>
+                            <p class="promotion_desc body_text">자격과 시험 과목을 알아보고 준비 방법을 안내받으세요.</p>
+                        </div>
+                        <div class="button_row">
+                            <a class="action_btn" href="/qualification/index">
+                                자영업지도사 알아보기
+                                <span class="arrow" aria-hidden="true"></span>
+                            </a>
+                            <a class="action_btn solid" href="/inquiry?type=exam#inquiry">
+                                응시 안내 신청하기
+                                <span class="arrow arrow_white" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="hero_slide swiper-slide">
+                    <figure class="home_hero_image">
+                        <img src="/images/home-hero-education.png" alt="홈 안내 이미지" loading="lazy">
+                    </figure>
+                    <div class="hero_copy">
+                        <h2 class="hero_title page_title">창업을 준비하는 시간,
+                            필요한 정보부터 차근차근.</h2>
+                        <p class="hero_desc body_text">관심 있는 정책 주제부터 창업의 방향까지,
+                            무료 창업교육에서 함께 살펴보세요.</p>
+                    </div>
+                    <div class="hero_promotion">
+                        <figure class="promotion_portrait_box">
+                            <img src="/images/education-advisor-portrait.png" alt="시니어비즈온 안내 담당자" loading="lazy">
+                        </figure>
+                        <div class="promotion_copy">
+                            <h2 class="promotion_title section_title">시니어비즈온 무료 창업교육</h2>
+                            <p class="promotion_desc body_text">관심 있는 정책 주제를 살펴보고 교육을 신청해 보세요.</p>
+                        </div>
+                        <div class="button_row">
+                            <a class="action_btn" href="/education/index">
+                                창업교육 알아보기
+                                <span class="arrow" aria-hidden="true"></span>
+                            </a>
+                            <a class="action_btn solid" href="/inquiry?type=education#inquiry">
+                                무료교육 신청하기
+                                <span class="arrow arrow_white" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="hero_slide swiper-slide">
+                    <figure class="home_hero_image">
+                        <img src="/images/home-hero-partner.png" alt="홈 안내 이미지" loading="lazy">
+                    </figure>
+                    <div class="hero_copy">
+                        <h2 class="hero_title page_title">쌓아온 경험으로,
+                            활동을 시작해 보세요.</h2>
+                        <p class="hero_desc body_text">제품을 이해하고 필요한 정보를 나누는 일,
+                            시니어비즈온과 함께할 파트너를 기다립니다.</p>
+                    </div>
+                    <div class="hero_promotion">
+                        <figure class="promotion_portrait_box">
+                            <img src="/images/partner-advisor-portrait.png" alt="시니어비즈온 안내 담당자" loading="lazy">
+                        </figure>
+                        <div class="promotion_copy">
+                            <h2 class="promotion_title section_title">시니어비즈온 파트너 상시 모집</h2>
+                            <p class="promotion_desc body_text">활동 내용과 참여 조건을 안내받아 보세요.</p>
+                        </div>
+                        <div class="button_row">
+                            <a class="action_btn" href="/partner/index">
+                                파트너 활동 알아보기
+                                <span class="arrow" aria-hidden="true"></span>
+                            </a>
+                            <a class="action_btn solid" href="/inquiry?type=partner#inquiry">
+                                파트너 참여 신청하기
+                                <span class="arrow arrow_white" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="hero_controls">
+                <button type="button" data-hero-prev aria-label="이전 슬라이드">
+                    <span class="arrow previous arrow_white" aria-hidden="true"></span>
+                </button>
+                <span data-hero-count>01 / 03</span>
+                <button type="button" data-hero-next aria-label="다음 슬라이드">
+                    <span class="arrow arrow_white" aria-hidden="true"></span>
+                </button>
+                <button type="button" data-hero-pause aria-label="자동 재생 정지">
+                    <figure class="pause_icon">
+                        <img src="/images/icon-pause.svg" alt="자동 재생 제어">
+                    </figure>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="service_sec section">
+        <div class="container-lg">
+            <div class="service_heading text-center trigger">
+                <p class="badge body_text section_scroll">나에게 맞는 서비스 찾기</p>
+                <h2 class="service_title section_title section_scroll">지금, 어떤 일에 관심 있으세요?</h2>
+                <p class="service_desc body_text section_scroll">관심 있는 일을 골라보세요. 시작하는 방법을 안내해 드릴게요.</p>
+            </div>
+            <div class="service_picker trigger">
+                <div class="service_tabs" role="tablist" aria-label="관심 서비스">
+                    <button type="button" role="tab" aria-selected="true" id="service_tab_0" class="section_scroll" aria-controls="service_panel_0" data-service="0">
+                        <figure>
+                            <img src="/images/icon-service-check-active.svg" alt="선택 표시" loading="lazy">
+                        </figure>
+                        <span>자영업자에게 운영 노하우를 알려주는 사람이 되고 싶어요.</span>
+                    </button>
+                    <button type="button" role="tab" aria-selected="false" id="service_tab_1" class="section_scroll" aria-controls="service_panel_1" data-service="1">
+                        <figure>
+                            <img src="/images/icon-service-check-active.svg" alt="선택 표시" loading="lazy">
+                        </figure>
+                        <span>내 가게를 열기 전에 무엇부터 준비할지 배우고 싶어요.</span>
+                    </button>
+                    <button type="button" role="tab" aria-selected="false" id="service_tab_2" class="section_scroll" aria-controls="service_panel_2" data-service="2">
+                        <figure>
+                            <img src="/images/icon-service-check-active.svg" alt="선택 표시" loading="lazy">
+                        </figure>
+                        <span>헬스케어 제품을 다루는 일을 해보고 싶어요.</span>
+                    </button>
+                </div>
+                <div class="service_carousel swiper section_scroll">
+                    <div class="swiper-wrapper">
+                        @for (var i = 0; i < serviceItems.Length; i++)
+                        {
+                            var item = serviceItems[i];
+                            <article class="service_panel swiper-slide" role="tabpanel" id="service_panel_@i" aria-labelledby="service_tab_@i">
+                                <figure class="service_image">
+                                    <img src="@item.Image" alt="@item.ImageAlt" loading="lazy">
+                                </figure>
+                                <h3 class="service_panel_item_title content_title">@item.Title</h3>
+                                <p class="service_panel_desc body_text">@item.Description</p>
+                                <div class="button_row">
+                                    <a class="action_btn" href="@item.Url">@item.Link
+                                        <span class="arrow" aria-hidden="true"></span>
+                                    </a>
+                                    <a class="action_btn solid" href="/inquiry?type=@item.Type#inquiry">@item.Action
+                                        <span class="arrow arrow_white" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="health_sec container-lg trigger">
+        <div class="product_intro">
+            <h2 class="product_intro_title section_title section_scroll">건강한 일상을 위한
+                실버 헬스케어</h2>
+            <p class="product_intro_desc body_text section_scroll">일상에서 건강을 챙기는 데 도움이 되는 제품을 소개해요.
+                건강관리부터 생활 속 온열 케어까지 살펴보세요.</p>
+            <div class="carousel_controls section_scroll">
+                <button type="button" data-product-prev aria-label="이전 제품">
+                    <span class="arrow previous" aria-hidden="true"></span>
+                </button>
+                <button type="button" data-product-next aria-label="다음 제품">
+                    <span class="arrow" aria-hidden="true"></span>
+                </button>
+                <span data-product-count>01 / 07</span>
+            </div>
+        </div>
+        <div class="home_products swiper section_scroll" aria-label="헬스케어 제품">
+            <div class="swiper-wrapper">
+                @for (var i = 0; i < productItems.Length; i++)
+                {
+                    var item = productItems[i];
+                    var hasImage = !string.IsNullOrWhiteSpace(item.Image);
+                    <a href="/product/detail" class="home_product swiper-slide">
+                        <figure class="content_image">
+                            <img src="@(hasImage ? item.Image : "/images/null_product.png")"
+                                 alt="@(hasImage ? item.ImageAlt : "등록된 이미지 없음")"
+                                 loading="lazy"
+                                 onerror="this.onerror = null; this.src = '/images/null_product.png'; this.alt = '등록된 이미지 없음';">
+                        </figure>
+                        <h3 class="home_product_item_title content_title">@item.Title</h3>
+                        <p class="home_product_desc body_text">@item.Summary</p>
+                    </a>
+                }
+            </div>
+        </div>
+    </section>
+    <section class="partner_strip container-lg trigger">
+        <div class="section_scroll">
+            <figure class="strip_image">
+                <img src="/images/partner-banner-background.png" alt="홈 안내 이미지" loading="lazy">
+            </figure>
+            <div class="strip_copy">
+                <h3 class="partner_strip_item_title content_title">시니어비즈온 헬스케어 제품과 
+                함께할 파트너를 찾습니다</h3>
+                <p class="partner_strip_desc body_text">제품을 다루는 파트너의 활동과 참여 방법을 살펴보세요.</p>
+            </div>
+            <a class="action_btn" href="/partner/index">
+                파트너 활동 알아보기
+                <span class="arrow" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+    <section class="home_brand trigger">
+        <div class="container-lg">
+            <h2 class="home_brand_title section_title section_scroll">쌓아온 경험이
+                새로운 일의 시작이 되도록</h2>
+            <p class="home_brand_desc body_text section_scroll">배움이 필요한 순간부터, 쌓아온 경험을 새로운 일에 써보고 싶은 순간까지 시니어비즈온이 함께합니다.</p>
+            <div class="brand_preview section_scroll">
+                <figure class="content_image">
+                    <img src="/images/home-brand-classroom.png" alt="홈 안내 이미지" loading="lazy">
+                </figure>
+                <a class="action_btn solid" href="/brand/index">
+                    시니어비즈온 알아보기
+                    <span class="arrow arrow_white" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="home_insights container-lg trigger">
+        <div class="section_top section_scroll">
+            <h2 class="home_insights_title section_title">인사이트</h2>
+            <div class="carousel_controls">
+                <button type="button" data-insight-prev aria-label="이전 인사이트">
+                    <span class="arrow previous" aria-hidden="true"></span>
+                </button>
+                <button type="button" data-insight-next aria-label="다음 인사이트">
+                    <span class="arrow" aria-hidden="true"></span>
+                </button>
+                <span data-insight-count>01 / 04</span>
+            </div>
+        </div>
+        <div class="insights_carousel swiper section_scroll" aria-label="인사이트 게시물">
+            <div class="swiper-wrapper">
+                @for (var i = 0; i < insightItems.Length; i++)
+                {
+                    var item = insightItems[i];
+                    var hasImage = !string.IsNullOrWhiteSpace(item.Image);
+                    <a class="swiper-slide" href="/news/insightdetail">
+                        <figure class="content_image">
+                            <img src="@(hasImage ? item.Image : "/images/null_img.png")"
+                                 alt="@(hasImage ? item.ImageAlt : "등록된 이미지 없음")"
+                                 loading="lazy"
+                                 onerror="this.onerror = null; this.src = '/images/null_img.png'; this.alt = '등록된 이미지 없음';">
+                        </figure>
+                        <h3 class="insights_carousel_item_title content_title">@item.Title</h3>
+                        <time datetime="2026-11-13">2026년 11월 13일</time>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="center_action section_scroll">
+            <a class="action_btn" href="/news/insights">
+                인사이트 더보기
+                <span class="arrow arrow_gray" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+    <section class="home_notices container-lg trigger">
+        <h2 class="home_notices_title section_title section_scroll">공지사항</h2>
+        <div class="home_notice_list">
+            @for (var i = 0; i < newsItems.Length; i++)
+            {
+                var item = newsItems[i];
+                <a href="/news/noticedetail" class="section_scroll">
+                    <h3 class="home_notice_list_item_title content_title">@item.Title</h3>
+                    <time datetime="2026-11-13">2026년 11월 13일</time>
+                </a>
+            }
+        </div>
+        <div class="center_action section_scroll">
+            <a class="action_btn" href="/news/notices">
+                공지사항 더보기
+                <span class="arrow arrow_gray" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+    <section class="contact_banner container-lg trigger">
+        <div class="banner_image section_scroll">
+            <figure class="content_image">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/images/home-inquiry-consultation-m.png">
+                    <img src="/images/home-inquiry-consultation.png" alt="홈 안내 이미지" loading="lazy">
+                </picture>
+            </figure>
+            <div class="banner_content">
+                <h2 class="banner_content_title section_title">자격과 교육, 파트너 활동까지
+                    궁금한 내용을 남겨주시면 안내해 드릴게요.</h2>
+                <a class="action_btn solid" href="/inquiry?type=general#inquiry">
+                    온라인 문의하기
+                    <span class="arrow arrow_white" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>

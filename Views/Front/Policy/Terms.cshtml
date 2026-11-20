@@ -1,0 +1,75 @@
+@{
+    // 운영 도메인 확정 후 배포 주소를 검토합니다. 쿼리 문자열은 대표 주소에서 제외합니다.
+    var realUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var currentUrl = $"{realUrl}{Context.Request.Path}";
+
+    var pageTitle = "이용약관 | 시니어비즈온";
+    var pageDescription = "이용약관 원문 제공 상태를 안내합니다.";
+    var pageName = "시니어비즈온";
+
+}
+@section meta {
+    <!-- basic -->
+    <title>@pageTitle</title>
+    <meta name="Title" content="@pageTitle" />
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="@pageDescription">
+    <meta name="application-name" content="@pageName" />
+    <meta name="robots" content="index,follow" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="@pageName">
+}
+
+@section ogtags {
+    <!-- naver, facebook -->
+    <meta property="og:image" content="@(realUrl)/images/home-hero-qualification.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@pageName">
+    <meta property="og:title" content="@pageTitle">
+    <meta property="og:description" content="@pageDescription">
+    <meta property="og:url" content="@currentUrl">
+
+    <!-- twitter -->
+    <meta name="twitter:image" content="@(realUrl)/images/home-hero-qualification.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section schema {
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "WebPage",
+            "name": "@pageTitle",
+            "description": "@pageDescription",
+            "url": "@currentUrl"
+        }
+    </script>
+}
+
+@section headtag {
+    @Html.Raw((string?)ViewBag.HeadTag ?? string.Empty)
+}
+
+@section headtagnext {
+    @Html.Raw((string?)ViewBag.HeadNextTag ?? string.Empty)
+}
+
+@section scripttag {
+    @Html.Raw((string?)ViewBag.ScriptTag ?? string.Empty)
+}
+
+@section scripts{
+    @* 이 페이지에는 별도의 동작이 없습니다. *@
+}
+@section css{
+    <link rel="stylesheet" href="~/css/page/policy.css" asp-append-version="true" />
+}
+
+<main id="main_content" class="policy_page container-sm">
+    <h1 class="policy_page_title page_title">이용약관</h1>
+    <p class="policy_page_desc body_text">정식 이용약관 원문이 아직 제공되지 않았습니다. 운영 전 원문 확인과 게시가 필요합니다.</p>
+</main>

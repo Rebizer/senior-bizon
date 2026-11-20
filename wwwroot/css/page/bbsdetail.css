@@ -1,0 +1,273 @@
+/*---------------- 게시판 상세 공통 ----------------*/
+.article_meta figure {
+    width: auto;
+    height: auto;
+    flex: none;
+}
+
+.article_sec {
+    padding-top: 150px;
+    padding-bottom: 80px;
+    font-size: var(--text-20);
+    line-height: 1.6;
+}
+
+.article_sec .article_page_title {
+    font-size: var(--text-45);
+    font-weight: var(--semi-bold);
+    line-height: 1.4;
+}
+
+.article_meta {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: var(--text-18);
+}
+.article_meta .article_meta_desc {
+    white-space: normal;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.article_meta time {
+    display: inline;
+    padding-left: 18px;
+    position: relative;
+}
+.article_meta time::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 12px;
+    background-color: var(--gray-200);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.article_meta button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--gray-400);
+    color: #fff;
+    border-radius: 30px;
+    font-size: var(--ft16);
+}
+
+.tags {
+    margin-top: 80px;
+}
+.tags > a:hover {
+    font-weight: var(--semi-bold);
+}
+
+.clipboard_input {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/*---------------- 공지사항 상세 ----------------*/
+.notice_article {
+    border-top: 1px solid var(--gray-200);
+    padding-top: 60px;
+}
+
+/*-- notice_neighbors --*/
+.notice_neighbors {
+    margin-top: 140px;
+    border-bottom: 1px solid var(--gray-200);
+}
+.notice_neighbor {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding-block: 32px;
+    border-top: 1px solid var(--gray-200);
+}
+.notice_neighbor a {
+    display: flex;
+    gap: 40px;
+}
+.notice_neighbor_icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    background: var(--gray-100);
+    border-radius: 50%;
+    border: 1px solid var(--gray-100);
+    transition: border .4s ease, box-shadow .4s ease, background .4s ease;
+}
+.notice_neighbor_icon .arrow {
+    width: 6px;
+    height: 10px;
+    transform: rotate(90deg);
+}
+.notice_neighbor_previous .arrow {
+    transform: rotate(-90deg);
+}
+.notice_neighbor_title {
+    font-size: var(--text-20);
+    font-weight: var(--semi-bold);
+    transition: color .4s ease;
+}
+.notice_neighbor time {
+    margin-top: 16px;
+}
+
+.notice_neighbor:hover .notice_neighbor_title {
+    color: var(--primary);
+}
+.notice_neighbor:hover .notice_neighbor_icon {
+    background-color: var(--white);
+    border-color: var(--gray-200);
+    box-shadow: 0 4px 10px var(--black-50);
+}
+
+
+/*---------------- 인사이트 상세 ----------------*/
+.article_cover {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    margin-bottom: 60px;
+}
+
+/*-- related_posts --*/
+.related_posts {
+    margin-top: 140px;
+}
+.related_posts .related_posts_title {
+    font-size: var(--text-28);
+    margin-bottom: 40px;
+}
+.related_posts > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding-block: 32px;
+    border-top: 1px solid var(--gray-200);
+}
+.related_posts .related_posts_item_title {
+    font-size: var(--text-20);
+    transition: color .4s ease;
+}
+.related_posts time {
+    margin-top: 24px;
+}
+.related_posts figure {
+    width: 240px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: box-shadow .4s ease;
+}
+.related_posts figure img {
+    transition: transform .4s ease;
+}
+
+.related_posts a:hover .related_posts_item_title {
+    color: var(--primary);
+}
+.related_posts a:hover figure {
+    box-shadow: 0 4px 10px var(--black-100);
+}
+.related_posts a:hover figure img {
+    transform: scale(1.05);
+}
+
+/*---------------- 반응형 ----------------*/
+@media (max-width: 768px) {
+    .article_sec {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    .article_meta {
+        margin-top: 24px;
+        margin-bottom: 32px;
+        align-items: end;
+        font-size: var(--ft14);
+    }
+    .article_meta .article_meta_desc {
+        flex-direction: column;
+        align-items: start;
+        gap: 4px;
+    }
+    .article_meta time {
+        font-size: var(--ft14);
+        padding-left: 0;
+    }
+    .article_meta time::before {
+        display: none;
+    }
+
+
+    .article_meta button {
+        padding: 8px 12px;
+        white-space: nowrap;
+        font-size: var(--ft14);
+    }
+
+    .related_posts {
+        margin-top: 60px;
+    }
+
+    .related_posts .related_posts_title {
+        margin-bottom: 24px;
+    }
+
+    .related_posts figure {
+        width: 120px;
+        border-radius: 12px;
+        flex-shrink: 0;
+    }
+
+    .related_posts time {
+        font-size: var(--ft14);
+        margin-top: 12px;
+    }
+
+    .notice_article {
+        padding-top: 32px;
+    }
+
+    .notice_neighbors {
+        margin-top: 60px;
+    }
+
+    .notice_neighbor {
+        gap: 16px;
+        padding-block: 24px;
+    }
+    .notice_neighbor a {
+        gap: 24px;
+    }
+    .notice_neighbor_icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .notice_neighbor time {
+        margin-top: 12px;
+        font-size: var(--ft14);
+    }
+
+    .article_cover {
+        margin-bottom: 32px;
+        border-radius: 14px;
+    }
+}

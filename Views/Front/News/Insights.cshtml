@@ -1,0 +1,160 @@
+@{
+    // 운영 도메인 확정 후 배포 주소를 검토합니다. 쿼리 문자열은 대표 주소에서 제외합니다.
+    var realUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var currentUrl = $"{realUrl}{Context.Request.Path}";
+
+    var pageTitle = "인사이트 | 시니어비즈온";
+    var pageDescription = "가게 창업과 운영에 필요한 비용, 정책과 경영 정보를 살펴보세요.";
+    var pageName = "시니어비즈온";
+    var insightItems = new[]
+    {
+        new { Title = "처음 가게를 열기 전, 어떤 비용부터 계산해야 할까요?", Image = "/images/insight-startup-costs.png", ImageAlt = "처음 가게를 열기 전, 어떤 비용부터 계산해야 할까요? 관련 이미지" },
+        new { Title = "창업 지원사업 공고에서 꼭 확인할 세 가지", Image = "/images/insight-startup-policy.png", ImageAlt = "창업 지원사업 공고에서 꼭 확인할 세 가지 관련 이미지" },
+        new { Title = "가게를 운영할 때 매출과 함께 봐야 할 숫자들", Image = "/images/insight-business-finances.png", ImageAlt = "가게를 운영할 때 매출과 함께 봐야 할 숫자들 관련 이미지" },
+        new { Title = "가게 운영 상담을 받기 전에 무엇을 준비하면 좋을까요?", Image = "/images/insight-business-consultation.png", ImageAlt = "가게 운영 상담을 받기 전에 무엇을 준비하면 좋을까요? 관련 이미지" },
+        new { Title = "인사이트 제목을 입력해 주세요", Image = "", ImageAlt = "인사이트 제목을 입력해 주세요 관련 이미지" },
+        new { Title = "인사이트 제목을 입력해 주세요", Image = "", ImageAlt = "인사이트 제목을 입력해 주세요 관련 이미지" }
+    };
+
+}
+@section meta {
+    <!-- basic -->
+    <title>@pageTitle</title>
+    <meta name="Title" content="@pageTitle" />
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="@pageDescription">
+    <meta name="application-name" content="@pageName" />
+    <meta name="robots" content="index,follow" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="@pageName">
+}
+
+@section ogtags {
+    <!-- naver, facebook -->
+    <meta property="og:image" content="@(realUrl)/images/insight-startup-costs.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@pageName">
+    <meta property="og:title" content="@pageTitle">
+    <meta property="og:description" content="@pageDescription">
+    <meta property="og:url" content="@currentUrl">
+
+    <!-- twitter -->
+    <meta name="twitter:image" content="@(realUrl)/images/insight-startup-costs.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section schema {
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "CollectionPage",
+            "name": "@pageTitle",
+            "description": "@pageDescription",
+            "url": "@currentUrl"
+        }
+    </script>
+}
+
+@section headtag {
+    @Html.Raw((string?)ViewBag.HeadTag ?? string.Empty)
+}
+
+@section headtagnext {
+    @Html.Raw((string?)ViewBag.HeadNextTag ?? string.Empty)
+}
+
+@section scripttag {
+    @Html.Raw((string?)ViewBag.ScriptTag ?? string.Empty)
+}
+
+@section css{
+    <link rel="stylesheet" href="~/css/page/bbs.css" asp-append-version="true" />
+}
+
+
+<main id="main_content">
+    <section class="listing_sec container-lg trigger">
+        <aside>
+            <nav class="breadcrumb section_scroll" aria-label="현재 위치">
+                <span>
+                    <a href="/" aria-label="홈">
+                        <figure class="icon_figure">
+                            <img src="/images/icon-home.svg" alt="홈" loading="lazy">
+                        </figure>
+                    </a>
+                </span>
+                <span>소식/자료</span>
+                <span>인사이트</span>
+            </nav>
+            <h1 class="listing_sec_title page_title section_scroll">인사이트</h1>
+            <form role="search" action="/news/insights" method="get">
+                <div class="search_form section_scroll">
+                    <input type="search" name="sWhere" value="@(Context.Request.Query["sWhere"].ToString())" aria-label="검색어를 입력해 주세요" placeholder="검색어를 입력해 주세요">
+                    <button type="submit" aria-label="검색">
+                        <figure class="search_icon">
+                            <img src="/images/icon-search.svg" alt="이동 아이콘" loading="lazy">
+                        </figure>
+                    </button>
+                </div>
+            </form>
+        </aside>
+        <div>
+            @{
+                var list = true;
+            }
+            @if(list)
+            {
+                <div class="insight_grid section_scroll">
+                    @for (var i = 0; i < insightItems.Length; i++)
+                    {
+                        var item = insightItems[i];
+                        var hasImage = !string.IsNullOrWhiteSpace(item.Image);
+                        <article>
+                            <a href="/news/insightdetail">
+                                <figure class="insight_thumbnail">
+                                    <img src="@(hasImage ? item.Image : "/images/null_img.png")"
+                                        alt="@(hasImage ? item.ImageAlt : "등록된 이미지 없음")"
+                                        loading="lazy"
+                                        onerror="this.onerror = null; this.src = '/images/null_img.png'; this.alt = '등록된 이미지 없음';">
+                                </figure>
+                                <p class="insight_grid_title section_title">@item.Title</p>
+                                <time datetime="2026-11-13">2026년 11월 13일</time>
+                            </a>
+                        </article>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="null_list">
+                    <p>등록된 게시물이 없습니다.</p>
+                </div>
+            }
+            <div class="pagination" aria-label="목록 페이지">
+                <div class="first_btn pagination_btn">
+                    <a href="/news/insights" aria-label="첫 페이지"><span class="material-symbols-outlined" aria-hidden="true">first_page</span></a>
+                </div>
+                <div class="left_btn pagination_btn">
+                    <a href="/news/insights" aria-label="이전 페이지" aria-disabled="true"><span class="material-symbols-outlined" aria-hidden="true">navigate_before</span></a>
+                </div>
+                <ul class="pagination_number">
+                    <li class="page_click"><a href="/news/insights" aria-current="page">1</a></li>
+                    @for (var i = 2; i <= 5; i++)
+                    {
+                        <li><a href="/news/insights" data-unavailable aria-disabled="true">@i</a></li>
+                    }
+                </ul>
+                <div class="right_btn pagination_btn">
+                    <a href="/news/insights" data-unavailable aria-label="다음 페이지" aria-disabled="true"><span class="material-symbols-outlined" aria-hidden="true">navigate_next</span></a>
+                </div>
+                <div class="last_btn pagination_btn">
+                    <a href="/news/insights" data-unavailable aria-label="마지막 페이지" aria-disabled="true"><span class="material-symbols-outlined" aria-hidden="true">last_page</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

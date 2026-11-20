@@ -1,0 +1,190 @@
+@{
+    // 운영 도메인 확정 후 배포 주소를 검토합니다. 쿼리 문자열은 대표 주소에서 제외합니다.
+    var realUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var currentUrl = $"{realUrl}{Context.Request.Path}";
+
+    var pageTitle = "실버 헬스케어 | 시니어비즈온";
+    var pageDescription = "건강한 일상을 위한 시니어비즈온의 건강관리 및 생활 케어 제품을 살펴보세요.";
+    var pageName = "시니어비즈온";
+    var productItems = new[]
+    {
+        new { Title = "닥터88", Image = "/images/healthcare-doctor88.png", ImageAlt = "닥터88 관련 이미지", Summary = "초음파 의료기기" },
+        new { Title = "나와모 에스오디 미라클 샴푸", Image = "/images/healthcare-shampoo.png", ImageAlt = "나와모 에스오디 미라클 샴푸 관련 이미지", Summary = "탈모 증상 완화 기능성 화장품" },
+        new { Title = "나와모 에스오디 퍼펙트 트리트먼트", Image = "/images/healthcare-treatment.png", ImageAlt = "나와모 에스오디 퍼펙트 트리트먼트 관련 이미지", Summary = "샴푸 후 모발 관리" },
+        new { Title = "나와모 에스오디 울트라 부스터", Image = "/images/healthcare-booster.png", ImageAlt = "나와모 에스오디 울트라 부스터 관련 이미지", Summary = "탈모 증상 완화 기능성 화장품" },
+        new { Title = "닥터에스오디 이뮨 플러스", Image = "/images/healthcare-immun-plus.png", ImageAlt = "닥터에스오디 이뮨 플러스 관련 이미지", Summary = "건강기능식품" },
+        new { Title = "일공일공 이미지 플러스", Image = "/images/healthcare-image-plus.png", ImageAlt = "일공일공 이미지 플러스 관련 이미지", Summary = "미백·주름개선 2중 기능성 화장품" },
+        new { Title = "우레탄탄소블랙써니", Image = "/images/healthcare-carbon-mat.png", ImageAlt = "우레탄탄소블랙써니 관련 이미지", Summary = "우레탄 탄소 전기매트" },
+        new { Title = "제품명을 입력해 주세요", Image = "", ImageAlt = "제품명을 입력해 주세요 관련 이미지", Summary = "제품 상세 내용을 입력해 주세요." }
+    };
+
+}
+@section meta {
+    <!-- basic -->
+    <title>@pageTitle</title>
+    <meta name="Title" content="@pageTitle" />
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="@pageDescription">
+    <meta name="application-name" content="@pageName" />
+    <meta name="robots" content="index,follow" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="@pageName">
+}
+
+@section ogtags {
+    <!-- naver, facebook -->
+    <meta property="og:image" content="@(realUrl)/images/service-healthcare.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@pageName">
+    <meta property="og:title" content="@pageTitle">
+    <meta property="og:description" content="@pageDescription">
+    <meta property="og:url" content="@currentUrl">
+
+    <!-- twitter -->
+    <meta name="twitter:image" content="@(realUrl)/images/service-healthcare.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section schema {
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "CollectionPage",
+            "name": "@pageTitle",
+            "description": "@pageDescription",
+            "url": "@currentUrl"
+        }
+    </script>
+}
+
+@section headtag {
+    @Html.Raw((string?)ViewBag.HeadTag ?? string.Empty)
+}
+
+@section headtagnext {
+    @Html.Raw((string?)ViewBag.HeadNextTag ?? string.Empty)
+}
+
+@section scripttag {
+    @Html.Raw((string?)ViewBag.ScriptTag ?? string.Empty)
+}
+
+
+@section css{
+    <link rel="stylesheet" href="~/css/page/healthcare.css" asp-append-version="true" />
+}
+
+
+<main id="main_content">
+    <section class="page_intro container-lg trigger">
+        <nav class="breadcrumb section_scroll" aria-label="현재 위치">
+            <span>
+                <a href="/" aria-label="홈">
+                    <figure class="icon_figure">
+                        <img src="/images/icon-home.svg" alt="홈" loading="lazy">
+                    </figure>
+                </a>
+            </span>
+            <span>실버 헬스케어</span>
+        </nav>
+        <div class="intro_row">
+            <h1 class="page_intro_title page_title section_scroll">실버 헬스케어</h1>
+            <div>
+                <p class="intro_description section_scroll">일상에 필요한 건강과 생활 관리를
+                시니어비즈온과 함께 살펴보세요.</p>
+                
+                <form role="search" action="/product/index" method="get">
+                    <div class="search_form section_scroll">
+                        <input type="search" name="sWhere" value="@(Context.Request.Query["sWhere"].ToString())"
+                            aria-label="제품명을 검색해 주세요" placeholder="제품명을 검색해 주세요">
+                        <button type="submit" aria-label="검색">
+                            <figure class="search_icon">
+                                <img src="/images/icon-search.svg" alt="이동 아이콘" loading="lazy">
+                            </figure>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="products_sec container-lg trigger">
+        @{
+            var list = true;
+        }
+        @if(list)
+        {
+            <div class="product_grid" data-filter-list>
+                @for (var i = 0; i < productItems.Length; i++)
+                {
+                    var item = productItems[i];
+                    var hasImage = !string.IsNullOrWhiteSpace(item.Image);
+                    <article data-search="@item.Title" class="section_scroll">
+                        <a href="/product/detail" class="product_link">
+                            <figure class="product_picture">
+                                <img src="@(hasImage ? item.Image : "/images/null_product.png")"
+                                    alt="@(hasImage ? item.ImageAlt : "등록된 이미지 없음")"
+                                    loading="lazy"
+                                    onerror="this.onerror = null; this.src = '/images/null_product.png'; this.alt = '등록된 이미지 없음';">
+                            </figure>
+                            <div>
+                                <p class="product_link_title section_title">@item.Title</p>
+                                <p class="product_link_desc body_text">@item.Summary</p>
+                                <span class="detail_link">제품 자세히 보기
+                                    <span class="arrow arrow_gray" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </a>
+                    </article>
+                }
+            </div>
+        }
+        else{
+            <div class="null_list">
+                <p>등록된 게시물이 없습니다.</p>
+            </div>
+        }
+        <div class="pagination" aria-label="목록 페이지">
+            <div class="first_btn pagination_btn">
+                <a href="/product/index" aria-label="첫 페이지"><span class="material-symbols-outlined" aria-hidden="true">first_page</span></a>
+            </div>
+            <div class="left_btn pagination_btn">
+                <a href="/product/index" aria-label="이전 페이지" aria-disabled="true"><span class="material-symbols-outlined" aria-hidden="true">navigate_before</span></a>
+            </div>
+            <ul class="pagination_number">
+                <li class="page_click"><a href="/product/index" aria-current="page">1</a></li>
+                @for (var i = 2; i <= 5; i++)
+                {
+                    <li><a href="/product/index" data-unavailable aria-disabled="true">@i</a></li>
+                }
+            </ul>
+            <div class="right_btn pagination_btn">
+                <a href="/product/index" data-unavailable aria-label="다음 페이지" aria-disabled="true"><span class="material-symbols-outlined" aria-hidden="true">navigate_next</span></a>
+            </div>
+            <div class="last_btn pagination_btn">
+                <a href="/product/index" data-unavailable aria-label="마지막 페이지" aria-disabled="true"><span class="material-symbols-outlined" aria-hidden="true">last_page</span></a>
+            </div>
+        </div>
+    </section>
+    <section class="contact_banner container-lg trigger">
+        <div class="banner_image section_scroll">
+            <figure class="content_image">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/images/service-healthcare-m.png">
+                    <img src="/images/service-healthcare.png" alt="실버 헬스케어 안내 이미지" loading="lazy">
+                </picture>
+            </figure>
+            <div class="banner_content">
+                <h2 class="banner_content_title section_title">나를 돌보는 시간,
+                    작은 관심부터 시작해요.</h2>
+                <a class="action_btn solid" href="/inquiry?type=product#inquiry">
+                    제품 문의하기
+                    <span class="arrow arrow_white" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>

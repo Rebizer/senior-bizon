@@ -1,0 +1,289 @@
+{
+  "note": "Same bytes describes original files only. Starter reset/default are newly prepared; starter lenis is an adapted module. Bundles are newly assembled. Vendor originals are copied unchanged.",
+  "files": [
+    {
+      "file": "wwwroot/js/lenis.js",
+      "identicalAcrossFive": true,
+      "sources": [
+        {
+          "project": "ESC.WEB",
+          "path": "ESC/wwwroot/js/lenis.js",
+          "sha256": "ed9e6232c0e18c1a007f6b145351305b66e2e63900ca3082bfef3067a32e1405"
+        },
+        {
+          "project": "Mak_Tech.WEB",
+          "path": "Mak_Tech/wwwroot/js/lenis.js",
+          "sha256": "ed9e6232c0e18c1a007f6b145351305b66e2e63900ca3082bfef3067a32e1405"
+        },
+        {
+          "project": "Omaholdings.WEB",
+          "path": "OMaHoldings/wwwroot/js/lenis.js",
+          "sha256": "ed9e6232c0e18c1a007f6b145351305b66e2e63900ca3082bfef3067a32e1405"
+        },
+        {
+          "project": "RigelClinic.WEB",
+          "path": "wwwroot/js/lenis.js",
+          "sha256": "ed9e6232c0e18c1a007f6b145351305b66e2e63900ca3082bfef3067a32e1405"
+        },
+        {
+          "project": "Sarim-military.WEB",
+          "path": "Sarim/wwwroot/js/lenis.js",
+          "sha256": "ed9e6232c0e18c1a007f6b145351305b66e2e63900ca3082bfef3067a32e1405"
+        }
+      ]
+    },
+    {
+      "file": "wwwroot/css/reset.css",
+      "identicalAcrossFive": false,
+      "sources": [
+        {
+          "project": "ESC.WEB",
+          "path": "ESC/wwwroot/css/reset.css",
+          "sha256": "439038d478390bba44143f21dd44c63fcdb5c587da356ae1a5b68759da32cfea"
+        },
+        {
+          "project": "Mak_Tech.WEB",
+          "path": "Mak_Tech/wwwroot/css/reset.css",
+          "sha256": "3e798dc7e4a97daf9ac893ecaed59898f1503f7b8b26977b914462d2ca9b9a50"
+        },
+        {
+          "project": "Omaholdings.WEB",
+          "path": "OMaHoldings/wwwroot/css/reset.css",
+          "sha256": "b4d8a8bc716b1e603803c772a4f6542cdf09d032f86bc30dac84fcbd8d2145ee"
+        },
+        {
+          "project": "RigelClinic.WEB",
+          "path": "wwwroot/css/reset.css",
+          "sha256": "9ceee77b26caba7f16295e8c5003fad472ca1060522b2878f5cf402dd29ee7bd"
+        },
+        {
+          "project": "Sarim-military.WEB",
+          "path": "Sarim/wwwroot/css/reset.css",
+          "sha256": "1fb44fa92b006dcd987d82ea6dba137dda21c4121100e9a16ef3fb634eae0d12"
+        }
+      ]
+    },
+    {
+      "file": "wwwroot/js/default.js",
+      "identicalAcrossFive": false,
+      "sources": [
+        {
+          "project": "ESC.WEB",
+          "path": "ESC/wwwroot/js/default.js",
+          "sha256": "7c2dd5cc901f36bd81b81b52375381d6f4c8c7e208e7821d5cc980c7287e912d"
+        },
+        {
+          "project": "Mak_Tech.WEB",
+          "path": "Mak_Tech/wwwroot/js/default.js",
+          "sha256": "a2b72e29b96349f7bddf004bda69e8c00e298dceeec65d80d82364eacc5c1bdd"
+        },
+        {
+          "project": "Omaholdings.WEB",
+          "path": "OMaHoldings/wwwroot/js/default.js",
+          "sha256": "c5a6836b33fd5c9c98e6019dd6f47927450e2f3a0d1b365660025422f04136bd"
+        },
+        {
+          "project": "RigelClinic.WEB",
+          "path": "wwwroot/js/default.js",
+          "sha256": "b89c5ac534d1727d803a262c1c3a3ecc845ded2f349d95041882151eb3069bd9"
+        },
+        {
+          "project": "Sarim-military.WEB",
+          "path": "Sarim/wwwroot/js/default.js",
+          "sha256": "8a3c9a507116cdff813a48e99d8f732dd9864a1fc03fde04e716c5650934a51c"
+        }
+      ]
+    },
+    {
+      "file": "wwwroot/lib/jquery-3.3.1.min.js",
+      "identicalAcrossFive": true,
+      "sources": [
+        {
+          "project": "ESC.WEB",
+          "path": "ESC/wwwroot/lib/jquery-3.3.1.min.js",
+          "sha256": "160a426ff2894252cd7cebbdd6d6b7da8fcd319c65b70468f10b6690c45d02ef"
+        },
+        {
+          "project": "Mak_Tech.WEB",
+          "path": "Mak_Tech/wwwroot/lib/jquery-3.3.1.min.js",
+          "sha256": "160a426ff2894252cd7cebbdd6d6b7da8fcd319c65b70468f10b6690c45d02ef"
+        },
+        {
+          "project": "Omaholdings.WEB",
+          "path": "OMaHoldings/wwwroot/lib/jquery-3.3.1.min.js",
+          "sha256": "160a426ff2894252cd7cebbdd6d6b7da8fcd319c65b70468f10b6690c45d02ef"
+        },
+        {
+          "project": "RigelClinic.WEB",
+          "path": "wwwroot/lib/jquery-3.3.1.min.js",
+          "sha256": "160a426ff2894252cd7cebbdd6d6b7da8fcd319c65b70468f10b6690c45d02ef"
+        },
+        {
+          "project": "Sarim-military.WEB",
+          "path": "Sarim/wwwroot/lib/jquery-3.3.1.min.js",
+          "sha256": "160a426ff2894252cd7cebbdd6d6b7da8fcd319c65b70468f10b6690c45d02ef"
+        }
+      ]
+    },
+    {
+      "file": "wwwroot/lib/gsap/js/gsap.min.js",
+      "identicalAcrossFive": true,
+      "sources": [
+        {
+          "project": "ESC.WEB",
+          "path": "ESC/wwwroot/lib/gsap/js/gsap.min.js",
+          "sha256": "0bc1df614724f0297b193e40f83f233a3e4b4e046d5af0fcdcda877330f327f2"
+        },
+        {
+          "project": "Mak_Tech.WEB",
+          "path": "Mak_Tech/wwwroot/lib/gsap/js/gsap.min.js",
+          "sha256": "0bc1df614724f0297b193e40f83f233a3e4b4e046d5af0fcdcda877330f327f2"
+        },
+        {
+          "project": "Omaholdings.WEB",
+          "path": "OMaHoldings/wwwroot/lib/gsap/js/gsap.min.js",
+          "sha256": "0bc1df614724f0297b193e40f83f233a3e4b4e046d5af0fcdcda877330f327f2"
+        },
+        {
+          "project": "RigelClinic.WEB",
+          "path": "wwwroot/lib/gsap/js/gsap.min.js",
+          "sha256": "0bc1df614724f0297b193e40f83f233a3e4b4e046d5af0fcdcda877330f327f2"
+        },
+        {
+          "project": "Sarim-military.WEB",
+          "path": "Sarim/wwwroot/lib/gsap/js/gsap.min.js",
+          "sha256": "0bc1df614724f0297b193e40f83f233a3e4b4e046d5af0fcdcda877330f327f2"
+        }
+      ]
+    },
+    {
+      "file": "wwwroot/lib/gsap/js/ScrollTrigger.min.js",
+      "identicalAcrossFive": true,
+      "sources": [
+        {
+          "project": "ESC.WEB",
+          "path": "ESC/wwwroot/lib/gsap/js/ScrollTrigger.min.js",
+          "sha256": "60992f84f70ee1c4b4aa946e771b59c2f6ac54f4fd2cc8d9311d75c824952bf2"
+        },
+        {
+          "project": "Mak_Tech.WEB",
+          "path": "Mak_Tech/wwwroot/lib/gsap/js/ScrollTrigger.min.js",
+          "sha256": "60992f84f70ee1c4b4aa946e771b59c2f6ac54f4fd2cc8d9311d75c824952bf2"
+        },
+        {
+          "project": "Omaholdings.WEB",
+          "path": "OMaHoldings/wwwroot/lib/gsap/js/ScrollTrigger.min.js",
+          "sha256": "60992f84f70ee1c4b4aa946e771b59c2f6ac54f4fd2cc8d9311d75c824952bf2"
+        },
+        {
+          "project": "RigelClinic.WEB",
+          "path": "wwwroot/lib/gsap/js/ScrollTrigger.min.js",
+          "sha256": "60992f84f70ee1c4b4aa946e771b59c2f6ac54f4fd2cc8d9311d75c824952bf2"
+        },
+        {
+          "project": "Sarim-military.WEB",
+          "path": "Sarim/wwwroot/lib/gsap/js/ScrollTrigger.min.js",
+          "sha256": "60992f84f70ee1c4b4aa946e771b59c2f6ac54f4fd2cc8d9311d75c824952bf2"
+        }
+      ]
+    },
+    {
+      "file": "wwwroot/lib/swiper/js/swiper-bundle.min.js",
+      "identicalAcrossFive": true,
+      "sources": [
+        {
+          "project": "ESC.WEB",
+          "path": "ESC/wwwroot/lib/swiper/js/swiper-bundle.min.js",
+          "sha256": "6942f0873b6a7108e18a983b4192ad469011a8131317f88161d6f0917058da22"
+        },
+        {
+          "project": "Mak_Tech.WEB",
+          "path": "Mak_Tech/wwwroot/lib/swiper/js/swiper-bundle.min.js",
+          "sha256": "6942f0873b6a7108e18a983b4192ad469011a8131317f88161d6f0917058da22"
+        },
+        {
+          "project": "Omaholdings.WEB",
+          "path": "OMaHoldings/wwwroot/lib/swiper/js/swiper-bundle.min.js",
+          "sha256": "6942f0873b6a7108e18a983b4192ad469011a8131317f88161d6f0917058da22"
+        },
+        {
+          "project": "RigelClinic.WEB",
+          "path": "wwwroot/lib/swiper/js/swiper-bundle.min.js",
+          "sha256": "6942f0873b6a7108e18a983b4192ad469011a8131317f88161d6f0917058da22"
+        },
+        {
+          "project": "Sarim-military.WEB",
+          "path": "Sarim/wwwroot/lib/swiper/js/swiper-bundle.min.js",
+          "sha256": "6942f0873b6a7108e18a983b4192ad469011a8131317f88161d6f0917058da22"
+        }
+      ]
+    },
+    {
+      "file": "wwwroot/lib/swiper/css/swiper-bundle.min.css",
+      "identicalAcrossFive": true,
+      "sources": [
+        {
+          "project": "ESC.WEB",
+          "path": "ESC/wwwroot/lib/swiper/css/swiper-bundle.min.css",
+          "sha256": "c94a0dc6cbd7f95a3c4eb8f7959fd8e5905ff0794116c07a5f09bbac7ef9ffd1"
+        },
+        {
+          "project": "Mak_Tech.WEB",
+          "path": "Mak_Tech/wwwroot/lib/swiper/css/swiper-bundle.min.css",
+          "sha256": "c94a0dc6cbd7f95a3c4eb8f7959fd8e5905ff0794116c07a5f09bbac7ef9ffd1"
+        },
+        {
+          "project": "Omaholdings.WEB",
+          "path": "OMaHoldings/wwwroot/lib/swiper/css/swiper-bundle.min.css",
+          "sha256": "c94a0dc6cbd7f95a3c4eb8f7959fd8e5905ff0794116c07a5f09bbac7ef9ffd1"
+        },
+        {
+          "project": "RigelClinic.WEB",
+          "path": "wwwroot/lib/swiper/css/swiper-bundle.min.css",
+          "sha256": "c94a0dc6cbd7f95a3c4eb8f7959fd8e5905ff0794116c07a5f09bbac7ef9ffd1"
+        },
+        {
+          "project": "Sarim-military.WEB",
+          "path": "Sarim/wwwroot/lib/swiper/css/swiper-bundle.min.css",
+          "sha256": "c94a0dc6cbd7f95a3c4eb8f7959fd8e5905ff0794116c07a5f09bbac7ef9ffd1"
+        }
+      ]
+    },
+    {
+      "file": "wwwroot/lib/jquery.toast.js",
+      "identicalAcrossFive": true,
+      "sources": [
+        {
+          "project": "ESC.WEB",
+          "path": "ESC/wwwroot/lib/jquery.toast.js",
+          "sha256": "0a01a087059cd514646122b6f76820cbf94fe6df9da89bb56322cf73c673994b"
+        },
+        {
+          "project": "Mak_Tech.WEB",
+          "path": "Mak_Tech/wwwroot/lib/jquery.toast.js",
+          "sha256": "0a01a087059cd514646122b6f76820cbf94fe6df9da89bb56322cf73c673994b"
+        },
+        {
+          "project": "Omaholdings.WEB",
+          "path": "OMaHoldings/wwwroot/lib/jquery.toast.js",
+          "sha256": "0a01a087059cd514646122b6f76820cbf94fe6df9da89bb56322cf73c673994b"
+        },
+        {
+          "project": "RigelClinic.WEB",
+          "path": "wwwroot/lib/jquery.toast.js",
+          "sha256": "0a01a087059cd514646122b6f76820cbf94fe6df9da89bb56322cf73c673994b"
+        },
+        {
+          "project": "Sarim-military.WEB",
+          "path": "Sarim/wwwroot/lib/jquery.toast.js",
+          "sha256": "0a01a087059cd514646122b6f76820cbf94fe6df9da89bb56322cf73c673994b"
+        }
+      ]
+    }
+  ],
+  "lenisVendor": {
+    "version": "1.0.42",
+    "source": "https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.mjs",
+    "sha256": "cda298dc8b59dddd7ce09e0b41c41a202838ee91b1f170ee156e78619db05748"
+  }
+}

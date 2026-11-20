@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework Condition="'$(PreviewFramework)' != 'true'">net8.0</TargetFramework>
+        <TargetFramework Condition="'$(PreviewFramework)' == 'true'">net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+</Project>
+

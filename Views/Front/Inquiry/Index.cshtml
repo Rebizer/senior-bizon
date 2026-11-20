@@ -1,0 +1,206 @@
+@{
+    // 운영 도메인 확정 후 배포 주소를 검토합니다. 쿼리 문자열은 대표 주소에서 제외합니다.
+    var realUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var currentUrl = $"{realUrl}{Context.Request.Path}";
+
+    var pageTitle = "교육신청 / 문의하기 | 시니어비즈온";
+    var pageDescription = "자영업지도사 응시, 창업교육, 헬스케어 제품과 파트너 참여에 관한 문의를 남겨주세요.";
+    var pageName = "시니어비즈온";
+
+}
+@section meta {
+    <!-- basic -->
+    <title>@pageTitle</title>
+    <meta name="Title" content="@pageTitle" />
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="@pageDescription">
+    <meta name="application-name" content="@pageName" />
+    <meta name="robots" content="index,follow" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="@pageName">
+}
+
+@section ogtags {
+    <!-- naver, facebook -->
+    <meta property="og:image" content="@(realUrl)/images/home-inquiry-consultation.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@pageName">
+    <meta property="og:title" content="@pageTitle">
+    <meta property="og:description" content="@pageDescription">
+    <meta property="og:url" content="@currentUrl">
+
+    <!-- twitter -->
+    <meta name="twitter:image" content="@(realUrl)/images/home-inquiry-consultation.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section schema {
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "WebPage",
+            "name": "@pageTitle",
+            "description": "@pageDescription",
+            "url": "@currentUrl"
+        }
+    </script>
+}
+
+@section headtag {
+    @Html.Raw((string?)ViewBag.HeadTag ?? string.Empty)
+}
+
+@section headtagnext {
+    @Html.Raw((string?)ViewBag.HeadNextTag ?? string.Empty)
+}
+
+@section scripttag {
+    @Html.Raw((string?)ViewBag.ScriptTag ?? string.Empty)
+}
+
+@section scripts{
+    <script src="~/js/page/inquiry.js" asp-append-version="true"></script>
+}
+@section css{
+    <link rel="stylesheet" href="~/css/page/contact.css" asp-append-version="true" />
+}
+
+
+<main id="main_content">
+    <section class="page_intro container-lg trigger">
+        <nav class="breadcrumb section_scroll" aria-label="현재 위치">
+            <span>
+                <a href="/" aria-label="홈">
+                    <figure class="icon_figure">
+                        <img src="/images/icon-home.svg" alt="홈" loading="lazy">
+                    </figure>
+                </a>
+            </span>
+            <span>교육신청 / 문의하기</span>
+        </nav>
+        <div class="intro_row">
+            <h1 class="page_intro_title page_title section_scroll">무엇을 도와드릴까요?</h1>
+        </div>
+    </section>
+    <section class="contact_choices container-lg trigger">
+        <div class="contact_type_list" role="tablist" aria-label="문의 유형">
+            <button class="section_scroll" type="button" role="tab" aria-selected="false" aria-controls="inquiry" data-contact="exam">
+                <h2 class="contact_type_list_title section_title">자영업지도사
+                    응시 문의</h2>
+                <p class="contact_type_list_desc body_text">자격과 시험 준비에 대해 
+                    안내받아 보세요.</p>
+                <span class="choice_arrow">
+                    <span class="arrow" aria-hidden="true"></span>
+                </span>
+            </button>
+            <button class="section_scroll" type="button" role="tab" aria-selected="false" aria-controls="inquiry" tabindex="-1" data-contact="education">
+                <h2 class="contact_type_list_title section_title">오프라인
+                    창업교육 신청</h2>
+                <p class="contact_type_list_desc body_text">관심 있는 정책 주제를 선택하고 
+                    교육을 신청해 보세요.</p>
+                <span class="choice_arrow">
+                    <span class="arrow" aria-hidden="true"></span>
+                </span>
+            </button>
+            <button class="section_scroll" type="button" role="tab" aria-selected="false" aria-controls="inquiry" tabindex="-1" data-contact="product">
+                <h2 class="contact_type_list_title section_title">실버 헬스케어
+                    제품 문의</h2>
+                <p class="contact_type_list_desc body_text">관심 있는 제품과 
+                    궁금한 점을 남겨주세요.</p>
+                <span class="choice_arrow">
+                    <span class="arrow" aria-hidden="true"></span>
+                </span>
+            </button>
+            <button class="section_scroll" type="button" role="tab" aria-selected="false" aria-controls="inquiry" tabindex="-1" data-contact="partner">
+                <h2 class="contact_type_list_title section_title">시니어비즈온
+                    파트너 참여 신청</h2>
+                <p class="contact_type_list_desc body_text">활동 내용과 참여 조건을 
+                    안내받아 보세요.</p>
+                <span class="choice_arrow">
+                    <span class="arrow" aria-hidden="true"></span>
+                </span>
+            </button>
+        </div>
+        <div class="general_inquiry section_scroll">
+            <p class="general_inquiry_desc body_text"><strong>일반 문의하기</strong> <span></span> 시니어비즈온에 궁금한 점이 있으신가요?</p>
+            <button type="button" class="action_btn" data-contact="general">
+                문의 작성하기
+                <span class="arrow" aria-hidden="true"></span>
+            </button>
+        </div>
+    </section>
+    <section class="inquiry_sec container-lg" id="inquiry" role="tabpanel" hidden>
+        <div class="inquiry_intro">
+            <h2 data-form-title class="inquiry_intro_title section_title">자영업지도사
+                응시 문의</h2>
+            <p data-form-desc class="inquiry_intro_desc body_text">자격과 시험 준비가 궁금하다면 내용을 남겨주세요.
+                확인된 시험 정보와 준비 절차를 안내해 드립니다.</p>
+        </div>
+        <form class="inquiry_form" novalidate>
+            <label for="contact_name">
+                이름<span>* (필수)</span>
+            </label>
+            <input id="contact_name" name="name" autocomplete="name" required maxlength="50" placeholder="이름을 입력해 주세요.">
+            <label for="contact_phone">
+                연락처<span>* (필수)</span>
+            </label>
+            <input id="contact_phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" required
+                   pattern="010-[0-9]{4}-[0-9]{4}|(?!010)[0-9]{7,20}" maxlength="20" placeholder="연락처를 입력해 주세요.">
+            <fieldset class="education_fields" hidden>
+                <legend>
+                    관심 정책 주제<span>* (필수 / 중복선택 가능)</span>
+                </legend>
+                <div class="topic_choices">
+                    <label>
+                        <input type="checkbox" name="topic" value="사업 운영 지원">
+                        <span>사업 운영 지원</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="topic" value="창업 지원">
+                        <span>창업 지원</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="topic" value="정책자금">
+                        <span>정책자금</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="topic" value="폐업 지원">
+                        <span>폐업 지원</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="topic" value="채무·재기 지원">
+                        <span>채무·재기 지원</span>
+                    </label>
+                </div>
+            </fieldset>
+            <div class="product_field" hidden>
+                <label for="product_name">
+                    관심 제품
+                    <span>* (필수)</span>
+                </label>
+                <input id="product_name" name="product" placeholder="문의할 제품명을 작성해 주세요." maxlength="100">
+            </div>
+            <label for="contact_message">상세 문의</label>
+            <textarea id="contact_message" name="message" maxlength="3000" placeholder="궁금한 내용을 자유롭게 남겨주세요."></textarea>
+            <div class="consent_row">
+                <label>
+                    <input type="checkbox" name="consent" required>
+                    <span>개인정보 수집 및 이용에 대한 동의 * (필수)</span>
+            </label>
+            <a href="/policy/privacy" target="_blank">전문보기</a>
+        </div>
+        <button type="submit" class="action_btn solid form_submit">응시 안내 신청하기</button>
+        <p class="form_status body_text" role="status"></p>
+    </form>
+</section>
+    <div class="inquiry_loading" role="status" aria-live="polite" hidden>
+        <div class="inquiry_loading_content">
+            <span class="inquiry_loading_spinner" aria-hidden="true"></span>
+            <p class="inquiry_loading_text">입력 내용을 확인하고 있습니다.</p>
+        </div>
+    </div>
+</main>

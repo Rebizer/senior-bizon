@@ -1,0 +1,196 @@
+/*---------------- 브랜드 소개 ----------------*/
+.brand_intro {
+    padding-top: 150px;
+    text-align: center;
+}
+
+.brand_intro::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 574px;
+    transform: translateX(-50%);
+    background: linear-gradient(#ffffffdd,#fff),url('/images/brand-intro-background.png') center 70% / cover;
+}
+
+.brand_intro .breadcrumb {
+    justify-content: center;
+}
+
+.brand_intro .brand_intro_title {
+    font-size: var(--text-60);
+}
+
+.brand_intro > .brand_intro_desc {
+    margin-top: 40px;
+    font-size: var(--text-22);
+}
+
+.brand_gallery {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 30px;
+    margin-top: 80px;
+    padding-top: 60px;
+}
+
+.brand_gallery figure {
+    height: 545px;
+    border-radius: 30px;
+}
+
+.brand_gallery figure:nth-child(2) {
+    transform: translateY(-60px);
+    object-position: right;
+}
+
+.brand_gallery figure:nth-child(3) {
+    object-position: 75%;
+}
+
+.brand_about {
+    margin-top: 180px;
+}
+
+.brand_wide {
+    height: 500px;
+    border-radius: 30px;
+    margin-top: 70px;
+}
+
+.brand_services {
+    padding-block: 230px 80px;
+}
+
+.brand_services article {
+    display: grid;
+    grid-template-columns: 250px minmax(0,1fr);
+    gap: 70px;
+}
+
+.brand_services article + article {
+    margin-top: 100px;
+}
+
+.brand_services article + article > div {
+    padding-top: 100px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.brand_services article + article > .brand_index {
+    padding-top: 100px;
+}
+
+.brand_index {
+    font-size: var(--text-20);
+    color: var(--gray-400);
+}
+
+.brand_services .section_top {
+    align-items: flex-start;
+}
+
+.brand_services .brand_services_item_title {
+    font-size: var(--text-32);
+}
+
+.brand_services .brand_services_desc {
+    margin-top: 32px;
+    font-size: var(--text-22);
+}
+
+.brand_service_image {
+    margin-top: 56px;
+    height: 435px;
+    border-radius: 30px;
+}
+
+/*---------------- 반응형 ----------------*/
+@media (max-width: 1200px) {
+    .brand_services article {
+        grid-template-columns: 180px 1fr;
+        gap: 30px;
+    }
+    .brand_service_image {
+        height: 340px;
+    }
+
+    .brand_services .section_top {
+        flex-direction: column;
+    }
+
+    .brand_gallery figure {
+        height: 390px;
+    }
+}
+
+@media (max-width: 768px) {
+    .brand_intro {
+        padding-top: 60px;
+    }
+
+    .brand_intro > .brand_intro_desc {
+        margin-top: 28px;
+    }
+
+    .brand_gallery {
+        margin-top: 40px;
+        padding-top: 24px;
+        gap: 12px;
+    }
+
+    .brand_gallery figure {
+        height: 220px;
+        border-radius: 16px;
+    }
+
+    .brand_gallery figure:nth-child(2) {
+        transform: translateY(-24px);
+    }
+
+    .brand_about {
+        margin-top: 80px;
+    }
+
+    .brand_wide {
+        height: 240px;
+        margin-top: 32px;
+        border-radius: 20px;
+    }
+
+    .brand_services {
+        padding-block: 80px 40px;
+    }
+
+    .brand_services article {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .brand_services article + article {
+        margin-top: 60px;
+    }
+
+    .brand_services article + article > div,
+    .brand_services article + article > .brand_index {
+        padding-top: 0;
+        border: 0;
+    }
+
+    .brand_services .section_top {
+        gap: 24px;
+    }
+
+    .brand_services .brand_services_desc {
+        margin-top: 24px;
+    }
+
+    .brand_service_image {
+        height: 240px;
+        margin-top: 28px;
+        border-radius: 20px;
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "css": {
+        "output": "wwwroot/css/bundle.css",
+        "sources": [
+            "wwwroot/lib/swiper/css/swiper-bundle.min.css"
+        ]
+    },
+    "js": {
+        "output": "wwwroot/js/bundle.js",
+        "sources": [
+            "wwwroot/lib/jquery-3.3.1.min.js",
+            "wwwroot/lib/gsap/js/gsap.min.js",
+            "wwwroot/lib/gsap/js/ScrollTrigger.min.js",
+            "wwwroot/lib/swiper/js/swiper-bundle.min.js",
+            "wwwroot/lib/jquery.toast.js"
+        ]
+    }
+}

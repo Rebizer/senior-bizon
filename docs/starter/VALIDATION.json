@@ -1,0 +1,78 @@
+{
+  "runtime": "Temporary .NET 9 host; deliverable targets .NET 8",
+  "initial": {
+    "jquery": "3.3.1",
+    "gsap": "3.12.4",
+    "trigger": "3.12.4",
+    "swiper": "function",
+    "toast": "function",
+    "lenis": "1.0.42",
+    "smoothWheel": true,
+    "syncTouch": false,
+    "whiteSpace": "pre-line",
+    "scripts": [
+      {
+        "src": "/js/bundle.js",
+        "type": ""
+      },
+      {
+        "src": "/js/lenis.js",
+        "type": "module"
+      },
+      {
+        "src": "/js/default.js",
+        "type": ""
+      }
+    ]
+  },
+  "resources": [
+    {
+      "url": "/css/bundle.css",
+      "status": 200
+    },
+    {
+      "url": "/css/default.css",
+      "status": 200
+    },
+    {
+      "url": "/css/reset.css",
+      "status": 200
+    },
+    {
+      "url": "/js/default.js",
+      "status": 200
+    },
+    {
+      "url": "/js/lenis.js",
+      "status": 200
+    },
+    {
+      "url": "/js/bundle.js",
+      "status": 200
+    },
+    {
+      "url": "/lib/lenis/lenis.mjs",
+      "status": 200
+    }
+  ],
+  "checks": [
+    "Razor compile/render",
+    "local assets HTTP 200",
+    "Lenis singleton module",
+    "wheel scroll",
+    "stop/start + CSS overflow lock",
+    "nested scroll data-lenis-prevent",
+    "one Lenis RAF per frame",
+    "390px no horizontal overflow of starter",
+    "keyboard skip link",
+    "reduced motion on initial load"
+  ],
+  "errors": [],
+  "failed": [],
+  "integrity": {
+    "filesChecked": 1089,
+    "changed": [],
+    "vendorOriginalsUnmodified": true,
+    "ruleCopiesMatch": true
+  }
+}

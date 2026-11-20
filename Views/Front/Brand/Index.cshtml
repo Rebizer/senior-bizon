@@ -1,0 +1,219 @@
+@{
+    // 운영 도메인 확정 후 배포 주소를 검토합니다. 쿼리 문자열은 대표 주소에서 제외합니다.
+    var realUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var currentUrl = $"{realUrl}{Context.Request.Path}";
+
+    var pageTitle = "브랜드 소개 | 시니어비즈온";
+    var pageDescription = "새로운 배움부터 다음 활동을 준비하는 시간까지, 시니어비즈온의 방향과 서비스를 소개합니다.";
+    var pageName = "시니어비즈온";
+
+}
+@section meta {
+    <!-- basic -->
+    <title>@pageTitle</title>
+    <meta name="Title" content="@pageTitle" />
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="@pageDescription">
+    <meta name="application-name" content="@pageName" />
+    <meta name="robots" content="index,follow" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="@pageName">
+}
+
+@section ogtags {
+    <!-- naver, facebook -->
+    <meta property="og:image" content="@(realUrl)/images/brand-about-experience.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@pageName">
+    <meta property="og:title" content="@pageTitle">
+    <meta property="og:description" content="@pageDescription">
+    <meta property="og:url" content="@currentUrl">
+
+    <!-- twitter -->
+    <meta name="twitter:image" content="@(realUrl)/images/brand-about-experience.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section schema {
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "WebPage",
+            "name": "@pageTitle",
+            "description": "@pageDescription",
+            "url": "@currentUrl"
+        }
+    </script>
+}
+
+@section headtag {
+    @Html.Raw((string?)ViewBag.HeadTag ?? string.Empty)
+}
+
+@section headtagnext {
+    @Html.Raw((string?)ViewBag.HeadNextTag ?? string.Empty)
+}
+
+@section scripttag {
+    @Html.Raw((string?)ViewBag.ScriptTag ?? string.Empty)
+}
+
+@section scripts{
+    <script>
+        $(function(){
+            gsap.to('.brand_gallery figure:nth-child(2)', {
+                scrollTrigger: {
+                    trigger: '.brand_gallery figure:nth-child(2)',
+                    start: 'top 30%',
+                    end: 'bottom top',
+                    scrub: 1
+                },
+                y: 0,
+
+            });
+        });
+    </script>
+}
+@section css{
+    <link rel="stylesheet" href="~/css/page/brand.css" asp-append-version="true" />
+}
+
+
+<main id="main_content">
+    <section class="brand_intro container-lg trigger">
+        <nav class="breadcrumb section_scroll" aria-label="현재 위치">
+            <span>
+                <a href="/" aria-label="홈">
+                    <figure class="icon_figure">
+                        <img src="/images/icon-home.svg" alt="홈" loading="lazy">
+                    </figure>
+                </a>
+            </span>
+            <span>브랜드 소개</span>
+        </nav>
+        <h1 class="brand_intro_title page_title section_scroll">쌓여온 경험이, 
+            앞으로의 기회가 되도록</h1>
+        <p class="brand_intro_desc body_text section_scroll">새로운 배움부터 다음 활동을 준비하는 시간까지.
+            시니어비즈온이 함께합니다.</p>
+        <div class="brand_gallery section_scroll">
+            <figure class="content_image">
+                <img src="/images/brand-gallery-new-beginning.png" alt="브랜드 소개 안내 이미지" loading="lazy">
+            </figure>
+            <figure class="content_image">
+                <img src="/images/brand-gallery-business.png" alt="브랜드 소개 안내 이미지" loading="lazy">
+            </figure>
+            <figure class="content_image">
+                <img src="/images/brand-gallery-connection.png" alt="브랜드 소개 안내 이미지" loading="lazy">
+            </figure>
+        </div>
+    </section>
+    <section class="brand_about container-lg trigger">
+        <p class="eyebrow body_text section_scroll">시니어비즈온이란?</p>
+        <div class="intro_row">
+            <h2 class="brand_about_title section_title section_scroll">경험을 바탕으로 
+            새로운 가능성을 살펴봅니다</h2>
+            <p class="brand_about_desc body_text section_scroll">시니어비즈온은 정도경영이 직접 운영하는
+                <strong>교육·창업·헬스케어 사업 브랜드</strong>입니다. 
+                
+                정책 정보를 이해하고, 새로운 활동을 준비하며
+                각자의 관심에 맞는 기회를 살펴볼 수 있도록 돕습니다.</p>
+        </div>
+        <figure class="brand_wide section_scroll">
+            <img src="/images/brand-about-experience.png" alt="브랜드 소개 안내 이미지" loading="lazy">
+        </figure>
+    </section>
+    <section class="brand_services container-lg trigger">
+        <article class="section_scroll">
+            <p class="brand_index body_text">01　배움과 자격</p>
+            <div>
+                <div class="section_top">
+                    <div>
+                        <h3 class="brand_services_item_title content_title">새로운 지식을 더하는 시간</h3>
+                        <p class="brand_services_desc body_text">자영업 현장에 필요한 정책·금융·경영 지식을 살펴보고,
+                            자영업지도사 자격과 응시 준비 방법을 안내받을 수 있습니다.</p>
+                    </div>
+                    <a class="action_btn solid" href="/qualification/index">
+                        자영업지도사 알아보기
+                        <span class="arrow arrow_white" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <figure class="brand_service_image">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/qualification-hero-m.png">
+                        <img src="/images/qualification-hero.png" alt="책상에서 자영업 관련 자료를 공부하는 시니어" loading="lazy">
+                    </picture>
+                </figure>
+            </div>
+        </article>
+        <article class="section_scroll">
+            <p class="brand_index body_text">02　창업과 새로운 활동</p>
+            <div>
+                <div class="section_top">
+                    <div>
+                        <h3 class="brand_services_item_title content_title">다음 일을 준비하는 첫걸음</h3>
+                        <p class="brand_services_desc body_text">창업과 사업 운영에 필요한 정책 정보를 알아보고,
+                            나의 경험을 활용할 수 있는 활동의 방향을 생각해 봅니다.</p>
+                    </div>
+                    <a class="action_btn solid" href="/education/index">
+                        창업교육 알아보기
+                        <span class="arrow arrow_white" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <figure class="brand_service_image">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/service-education-classroom-m.png">
+                        <img src="/images/service-education-classroom.png" alt="시니어 창업교육 강의를 듣는 수강생들" loading="lazy">
+                    </picture>
+                </figure>
+            </div>
+        </article>
+        <article class="section_scroll">
+            <p class="brand_index body_text">03　건강과 생활 관리</p>
+            <div>
+                <div class="section_top">
+                    <div>
+                        <h3 class="brand_services_item_title content_title">일상을 돌보는 작은 관심</h3>
+                        <p class="brand_services_desc body_text">건강과 생활 관리에 필요한 제품을 살펴보고,
+                            나에게 맞는 제품에 대해 안내받을 수 있습니다.</p>
+                    </div>
+                    <a class="action_btn solid" href="/product/index">
+                        실버 헬스케어 알아보기
+                        <span class="arrow arrow_white" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <figure class="brand_service_image">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/service-healthcare-m.png">
+                        <img src="/images/service-healthcare.png" alt="브랜드 소개 안내 이미지" loading="lazy">
+                    </picture>
+                </figure>
+            </div>
+        </article>
+        <article class="section_scroll">
+            <p class="brand_index body_text">04　파트너 활동</p>
+            <div>
+                <div class="section_top">
+                    <div>
+                        <h3 class="brand_services_item_title content_title">경험과 관심을 활동으로 연결하기</h3>
+                        <p class="brand_services_desc body_text">제품을 이해하고 필요한 분께 정보를 안내하는
+                            시니어비즈온 파트너 활동을 알아볼 수 있습니다.</p>
+                    </div>
+                    <a class="action_btn solid" href="/partner/index">
+                        파트너 모집 알아보기
+                        <span class="arrow arrow_white" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <figure class="brand_service_image">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/images/service-partner-m.png">
+                        <img src="/images/service-partner.png" alt="고객에게 헬스케어 제품 정보를 안내하는 파트너" loading="lazy">
+                    </picture>
+                </figure>
+            </div>
+        </article>
+    </section>
+</main>

@@ -1,0 +1,151 @@
+@{
+    // 운영 도메인 확정 후 배포 주소를 검토합니다. 쿼리 문자열은 대표 주소에서 제외합니다.
+    var realUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var currentUrl = $"{realUrl}{Context.Request.Path}";
+
+    var pageTitle = "처음 가게를 열기 전, 어떤 비용부터 계산해야 할까요? | 시니어비즈온";
+    var pageDescription = "창업 전 필요한 점포 계약 비용과 공간 준비 비용을 살펴보는 시니어비즈온 인사이트입니다.";
+    var pageName = "시니어비즈온";
+    var tags = new[] { "창업준비", "창업비용", "가게창업", "운영자금" };
+
+}
+@section meta {
+    <!-- basic -->
+    <title>@pageTitle</title>
+    <meta name="Title" content="@pageTitle" />
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="@pageDescription">
+    <meta name="application-name" content="@pageName" />
+    <meta name="robots" content="index,follow" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="@pageName">
+}
+
+@section ogtags {
+    <!-- naver, facebook -->
+    <meta property="og:image" content="@(realUrl)/images/insight-startup-costs.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="@pageName">
+    <meta property="og:title" content="@pageTitle">
+    <meta property="og:description" content="@pageDescription">
+    <meta property="og:url" content="@currentUrl">
+
+    <!-- twitter -->
+    <meta name="twitter:image" content="@(realUrl)/images/insight-startup-costs.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section schema {
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "WebPage",
+            "name": "@pageTitle",
+            "description": "@pageDescription",
+            "url": "@currentUrl"
+        }
+    </script>
+}
+
+@section headtag {
+    @Html.Raw((string?)ViewBag.HeadTag ?? string.Empty)
+}
+
+@section headtagnext {
+    @Html.Raw((string?)ViewBag.HeadNextTag ?? string.Empty)
+}
+
+@section scripttag {
+    @Html.Raw((string?)ViewBag.ScriptTag ?? string.Empty)
+}
+
+@section scripts{
+    @* 공유·사용설명서 안내는 공통 default.js에서 연결합니다. *@
+}
+@section css{
+    <link rel="stylesheet" href="~/css/page/bbsdetail.css" asp-append-version="true" />
+}
+
+
+<main id="main_content">
+    <article class="article_sec container-sm trigger">
+        <nav class="breadcrumb section_scroll" aria-label="현재 위치">
+            <span>
+                <a href="/" aria-label="홈">
+                    <figure class="icon_figure">
+                        <img src="/images/icon-home.svg" alt="홈" loading="lazy">
+                    </figure>
+                </a>
+            </span>
+            <span>소식/자료</span>
+            <span>인사이트</span>
+        </nav>
+        <h1 class="article_page_title page_title section_scroll">처음 가게를 열기 전, 어떤 비용부터 계산해야 할까요?</h1>
+        <div class="article_meta section_scroll">
+            <p class="article_meta_desc body_text">시니어비즈온
+                <time datetime="2026-11-13">2026년 11월 13일</time></p>
+            <button type="button" data-share>
+                공유하기
+                <figure class="icon_figure icon_figure">
+                    <img src="/images/icon-share.svg" alt="이동 아이콘" loading="lazy">
+                </figure>
+            </button>
+        </div>
+        <figure class="article_cover">
+            <img src="/images/insight-startup-costs.png" alt="처음 가게를 열기 전, 어떤 비용부터 계산해야 할까요? 안내 이미지" loading="lazy">
+        </figure>
+        <div class="ck-content" style="color: var(--gray-500, #4D5353); font-size: var(--text-20, clamp(1rem, 2vw, 1.25rem)); line-height: 1.6;">
+            <p style="margin: 0 0 32px;">가게를 시작할 때 가장 먼저 떠오르는 비용은 보증금과 인테리어 비용일 거예요. 하지만 문을 연 뒤에도 임대료와 재료비처럼 계속 나가는 돈이 있습니다.</p>
+            <p style="margin: 0;">처음 준비한 예산을 한 번에 다 쓰지 않으려면, <strong>가게를 열기 전 필요한 돈과 문을 연 뒤 운영할 돈을 함께 계산</strong>해 보는 것이 좋습니다.</p>
+            <h2 style="margin: clamp(48px, 6vw, 88px) 0 24px; color: var(--gray-600, #252D2C); font-size: var(--text-28, clamp(1.25rem, 3vw, 1.75rem)); font-weight: var(--bold, 700); line-height: 1.4;">1. 가게를 구하는 데 드는 비용</h2>
+            <p style="margin: 0;">가장 먼저 확인할 것은 가게를 구할 때 필요한 비용입니다.</p>
+            <div style="margin: 32px 0; padding: clamp(20px, 4vw, 32px); border-radius: 20px; background-color: var(--gray-100, #F5F7F7);">
+                <p style="margin: 0;"><strong>임대보증금:</strong> 계약할 때 맡기는 돈</p>
+                <p style="margin: 0;"><strong>월 임대료와 관리비:</strong> 매달 고정으로 나가는 비용</p>
+                <p style="margin: 0;"><strong>권리금:</strong> 해당 점포에 권리금이 있는 경우 확인할 비용</p>
+                <p style="margin: 0;"><strong>중개보수와 계약 관련 비용:</strong> 계약 과정에서 발생할 수 있는 비용</p>
+            </div>
+            <p style="margin: 0;">월세만 보고 점포를 결정하기보다 관리비에 무엇이 포함되는지, 별도로 부담할 비용은 없는지도 함께 확인해 보세요.</p>
+            <h2 style="margin: clamp(48px, 6vw, 88px) 0 24px; color: var(--gray-600, #252D2C); font-size: var(--text-28, clamp(1.25rem, 3vw, 1.75rem)); font-weight: var(--bold, 700); line-height: 1.4;">2. 공간을 준비하는 데 드는 비용</h2>
+            <p style="margin: 0;">가게를 계약한 뒤에는 업종에 맞게 공간을 준비해야 합니다. 기존 시설을 얼마나 활용할 수 있는지에 따라 필요한 비용도 달라집니다. 인테리어와 간판은 물론, 전기·수도·냉난방 공사, 집기와 가구, 주방기기나 판매 장비도 함께 살펴보세요.</p>
+            <p style="margin: 0;">견적을 받을 때는 총액만 보기보다 <strong>어디까지 포함된 금액인지</strong> 확인하는 것이 좋습니다. 철거, 추가 공사, 폐기물 처리처럼 별도로 발생할 수 있는 항목도 물어보세요.</p>
+        </div>
+        <div class="tags">
+            @foreach (var tag in tags)
+            {
+                <a href="/news/insights?sWhere=@Uri.EscapeDataString(tag)">@tag</a>
+            }
+        </div>
+        <section class="related_posts">
+            <h2 class="related_posts_title section_title">이 게시물도 읽어보세요</h2>
+            <a href="/news/insightdetail">
+                <div>
+                    <h3 class="related_posts_item_title content_title">창업 지원사업 공고에서 꼭 확인할 세 가지</h3>
+                    <time datetime="2026-11-13">2026년 11월 13일</time>
+                </div>
+                <figure class="content_image">
+                    <img src="/images/insight-startup-policy.png" alt="창업 지원사업 공고 안내 이미지" loading="lazy">
+                </figure>
+            </a>
+            <a href="/news/insightdetail">
+                <div>
+                    <h3 class="related_posts_item_title content_title">가게를 운영할 때 매출과 함께 봐야 할 숫자들</h3>
+                    <time datetime="2026-11-13">2026년 11월 13일</time>
+                </div>
+                <figure class="content_image">
+                    <img src="/images/insight-business-finances.png" alt="가게 운영 비용과 매출 안내 이미지" loading="lazy">
+                </figure>
+            </a>
+        </section>
+        <div class="center_action">
+            <a class="action_btn" href="/news/insights">
+                목록으로
+                <span class="arrow arrow_gray" aria-hidden="true"></span>
+            </a>
+        </div>
+    </article>
+</main>

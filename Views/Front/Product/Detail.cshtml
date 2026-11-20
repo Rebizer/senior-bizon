@@ -1,0 +1,119 @@
+@{
+    // 운영 도메인 확정 후 배포 주소를 검토합니다. 쿼리 문자열은 대표 주소에서 제외합니다.
+    var realUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var currentUrl = $"{realUrl}{Context.Request.Path}";
+
+    var pageTitle = "닥터88 | 시니어비즈온";
+    var pageDescription = "초음파 의료기기 닥터88의 구성과 사용 안내를 확인하고 제품 상담을 신청하세요.";
+    var pageName = "시니어비즈온";
+
+}
+@section meta {
+    <!-- basic -->
+    <title>@pageTitle</title>
+    <meta name="Title" content="@pageTitle" />
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="@pageDescription">
+    <meta name="application-name" content="@pageName" />
+    <meta name="robots" content="index,follow" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="@pageName">
+}
+
+@section ogtags {
+    <!-- naver, facebook -->
+    <meta property="og:image" content="@(realUrl)/images/doctor88-detail.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@pageName">
+    <meta property="og:title" content="@pageTitle">
+    <meta property="og:description" content="@pageDescription">
+    <meta property="og:url" content="@currentUrl">
+
+    <!-- twitter -->
+    <meta name="twitter:image" content="@(realUrl)/images/doctor88-detail.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section schema {
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "WebPage",
+            "name": "@pageTitle",
+            "description": "@pageDescription",
+            "url": "@currentUrl"
+        }
+    </script>
+}
+
+@section headtag {
+    @Html.Raw((string?)ViewBag.HeadTag ?? string.Empty)
+}
+
+@section headtagnext {
+    @Html.Raw((string?)ViewBag.HeadNextTag ?? string.Empty)
+}
+
+@section scripttag {
+    @Html.Raw((string?)ViewBag.ScriptTag ?? string.Empty)
+}
+
+@section scripts{
+    @* 공유·사용설명서 안내는 공통 default.js에서 연결합니다. *@
+}
+@section css{
+    <link rel="stylesheet" href="~/css/page/product.css" asp-append-version="true" />
+}
+
+
+<main id="main_content">
+    <section class="product_detail container-lg trigger">
+        <nav class="breadcrumb section_scroll" aria-label="현재 위치">
+            <span>
+                <a href="/" aria-label="홈">
+                    <figure class="icon_figure">
+                        <img src="/images/icon-home.svg" alt="홈" loading="lazy">
+                    </figure>
+                </a>
+            </span>
+            <span>실버 헬스케어</span>
+        </nav>
+        <div class="product_detail_grid">
+            <figure class="detail_product section_scroll">
+                <img src="/images/doctor88-detail.png" alt="닥터88" loading="lazy"
+                     onerror="this.onerror = null; this.src = '/images/null_product.png'; this.alt = '등록된 이미지 없음';">
+            </figure>
+            <div>
+                <p class="product_category body_text section_scroll">초음파 의료기기</p>
+                <h1 class="product_detail_grid_title page_title section_scroll">닥터88</h1>
+                <p class="product_detail_grid_desc body_text section_scroll">제품의 구성과 사용방법, 확인해야 할 정보를 시니어비즈온에서 안내합니다. 
+                    구매 전 사용목적과 주의사항을 살펴보세요.</p>
+                <div class="button_row section_scroll">
+                    <a class="action_btn" href="#!" data-unavailable aria-disabled="true">
+                        사용설명서 보기
+                        <span class="arrow" aria-hidden="true"></span>
+                    </a>
+                    <a class="action_btn solid" href="/inquiry?type=product&product=닥터88#inquiry">
+                        제품 상담하기
+                        <span class="arrow arrow_white" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="notice_box section_scroll">
+            <h2 class="notice_box_title section_title">사용 전 꼭 확인해 주세요.</h2>
+            <p class="notice_box_desc body_text">사용 전 제품의 사용목적과 사용방법, 주의사항을 확인해 주세요.
+                자세한 내용은 해당 모델의 사용설명서에서 확인할 수 있습니다.</p>
+        </div>
+        <div class="center_action section_scroll">
+            <a class="action_btn" href="/product/index">
+                제품 목록으로
+                <span class="arrow arrow_gray" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+</main>

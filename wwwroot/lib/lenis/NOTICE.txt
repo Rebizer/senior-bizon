@@ -1,0 +1,5 @@
+@studio-freight/lenis 1.0.42
+Source: https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.mjs
+Upstream package declares license: MIT (see package.json).
+The distributed module and source map are included without modification.
+No separate LICENSE file was present at the checked package URL; this notice is provenance, not a replacement license text.

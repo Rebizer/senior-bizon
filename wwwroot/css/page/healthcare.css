@@ -1,0 +1,118 @@
+/*---------------- 헬스케어 목록 ----------------*/
+.product_grid {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 0 40px;
+}
+.product_grid article {
+    padding-block: 40px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.product_link {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.product_picture {
+    height: 320px;
+    display: grid;
+    place-items: center;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-100);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: border .4s ease, box-shadow .4s ease;
+}
+
+.product_link .product_link_title {
+    font-size: var(--text-28);
+    transition: color .4s ease;
+}
+.product_link .product_link_desc {
+    margin-top: 16px;
+}
+
+.detail_link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 60px;
+    font-size: var(--text-18);
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+.product_picture > img {
+    object-fit: contain;
+}
+
+.product_grid article:hover .product_picture {
+    border-color: var(--primary);
+    box-shadow: 0 4px 20px var(--black-100);
+}
+.product_grid article:hover .product_link_title {
+    color: var(--primary);
+}
+.product_grid article:hover .detail_link {
+    opacity: 1;
+}
+
+/*---------------- 반응형 ----------------*/
+@media (max-width: 1600px) {
+    .product_link {
+        grid-template-columns: 44% 1fr;
+        gap: 32px;
+    }
+
+    .product_picture {
+        height: auto;
+        aspect-ratio: 1;
+    }
+}
+
+@media (max-width: 1200px) {
+    .product_link {
+        grid-template-columns: 42% 1fr;
+        gap: 24px;
+    }
+
+    .product_link .product_link_title {
+        font-size: min(var(--ft22), var(--text-28));
+    }
+
+    .detail_link {
+        margin-top: 30px;
+        font-size: var(--ft16);
+    }
+}
+
+@media (max-width: 768px) {
+    .product_grid {
+        margin-top: 0;
+        grid-template-columns: 1fr;
+    }
+
+    .product_grid article {
+        padding-block: 24px;
+    }
+
+    .product_link {
+        grid-template-columns: 42% 1fr;
+        gap: 20px;
+    }
+    .product_link .product_link_title {
+        font-size: var(--ft18);
+    }
+    .product_link .product_link_desc {
+        font-size: var(--ft15);
+        margin-top: 12px;
+    }
+
+    .detail_link {
+        font-size: var(--ft14);
+        margin-top: 24px;
+    }
+}

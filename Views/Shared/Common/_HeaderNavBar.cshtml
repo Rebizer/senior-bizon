@@ -1,0 +1,42 @@
+@{
+    var controllerName = ViewContext.RouteData.Values["controller"]?.ToString()?.ToLowerInvariant() ?? string.Empty;
+    var actionName = ViewContext.RouteData.Values["action"]?.ToString()?.ToLowerInvariant() ?? string.Empty;
+    var menuItems = new[]
+    {
+        new { Label = "브랜드 소개", Url = "/brand/index", Action = "brand" },
+        new { Label = "자영업지도사", Url = "/qualification/index", Action = "qualification" },
+        new { Label = "창업교육", Url = "/education/index", Action = "education" },
+        new { Label = "실버 헬스케어", Url = "/product/index", Action = "healthcare" },
+        new { Label = "파트너 모집", Url = "/partner/index", Action = "partner" }
+    };
+}
+<header class="site_header">
+    <a class="home_logo" href="/" aria-label="시니어비즈온 홈">
+        <figure class="brand_logo">
+            <img src="/images/logo.svg" alt="시니어비즈온 SENIOR BIZ ON" width="161" height="47">
+        </figure>
+    </a>
+    <button type="button" class="menu_toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="main_nav">
+        <span class="menu_toggle_icon" aria-hidden="true"></span>
+    </button>
+    <div class="menu_backdrop" aria-hidden="true"></div>
+    <nav id="main_nav" class="main_nav" aria-label="주 메뉴" data-lenis-prevent>
+        <ul>
+            @for (var i = 0; i < menuItems.Length; i++)
+            {
+                var item = menuItems[i];
+                var active = controllerName == "home" && (actionName == item.Action || (item.Action == "healthcare" && actionName == "product"));
+                <li><a href="@item.Url" class="nav_link @(active ? "active" : null)" aria-current="@(active ? "page" : null)">@item.Label</a></li>
+            }
+            <li class="news_menu">
+                <a href="/news/notices" class="nav_link @(new[] { "notices", "noticedetail", "insights", "insightdetail" }.Contains(actionName) ? "active" : null)">소식/자료</a>
+                <ul class="news_dropdown">
+                    <li><a href="/news/notices" class="nav_link @(actionName.StartsWith("notice") ? "active" : null)">공지사항</a></li>
+                    <li><a href="/news/insights" class="nav_link @(actionName.StartsWith("insight") ? "active" : null)">인사이트</a></li>
+                </ul>
+            </li>
+            <li class="mobile_contact"><a href="/inquiry">교육신청 / 문의하기</a></li>
+        </ul>
+    </nav>
+    <a class="header_contact" href="/inquiry">교육신청 / 문의하기</a>
+</header>

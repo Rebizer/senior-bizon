@@ -1,0 +1,152 @@
+@{
+    // 운영 도메인 확정 후 배포 주소를 검토합니다. 쿼리 문자열은 대표 주소에서 제외합니다.
+    var realUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var currentUrl = $"{realUrl}{Context.Request.Path}";
+
+    var pageTitle = "자영업지도사 응시 신청 안내 | 시니어비즈온";
+    var pageDescription = "자영업지도사 자격 정보, 응시 안내 신청 방법과 신청 전 확인 사항을 안내합니다.";
+    var pageName = "시니어비즈온";
+    var tag = "자영업지도사";
+
+}
+@section meta {
+    <!-- basic -->
+    <title>@pageTitle</title>
+    <meta name="Title" content="@pageTitle" />
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="@pageDescription">
+    <meta name="application-name" content="@pageName" />
+    <meta name="robots" content="index,follow" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="@pageName">
+}
+
+@section ogtags {
+    <!-- naver, facebook -->
+    <meta property="og:image" content="@(realUrl)/images/home-hero-qualification.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="@pageName">
+    <meta property="og:title" content="@pageTitle">
+    <meta property="og:description" content="@pageDescription">
+    <meta property="og:url" content="@currentUrl">
+
+    <!-- twitter -->
+    <meta name="twitter:image" content="@(realUrl)/images/home-hero-qualification.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section schema {
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "WebPage",
+            "name": "@pageTitle",
+            "description": "@pageDescription",
+            "url": "@currentUrl"
+        }
+    </script>
+}
+
+@section headtag {
+    @Html.Raw((string?)ViewBag.HeadTag ?? string.Empty)
+}
+
+@section headtagnext {
+    @Html.Raw((string?)ViewBag.HeadNextTag ?? string.Empty)
+}
+
+@section scripttag {
+    @Html.Raw((string?)ViewBag.ScriptTag ?? string.Empty)
+}
+
+@section scripts{
+    @* 공유·사용설명서 안내는 공통 default.js에서 연결합니다. *@
+}
+@section css{
+    <link rel="stylesheet" href="~/css/page/bbsdetail.css" asp-append-version="true" />
+}
+
+
+<main id="main_content">
+    <article class="article_sec container-sm trigger">
+        <nav class="breadcrumb section_scroll" aria-label="현재 위치">
+            <span>
+                <a href="/" aria-label="홈">
+                    <figure class="icon_figure">
+                        <img src="/images/icon-home.svg" alt="홈" loading="lazy">
+                    </figure>
+                </a>
+            </span>
+            <span>소식/자료</span>
+            <span>공지사항</span>
+        </nav>
+        <h1 class="article_page_title page_title section_scroll">자영업지도사 응시 신청 안내</h1>
+        <div class="article_meta section_scroll">
+            <p class="article_meta_desc body_text">시니어비즈온
+                <time datetime="2026-11-13">2026년 11월 13일</time></p>
+            <button type="button" data-share>
+                공유하기
+                <figure class="icon_figure icon_figure">
+                    <img src="/images/icon-share.svg" alt="이동 아이콘" loading="lazy">
+                </figure>
+            </button>
+        </div>
+        <div class="notice_article ck-content" style="color: var(--gray-500, #4D5353); font-size: var(--text-20, clamp(1rem, 2vw, 1.25rem)); line-height: 1.6;">
+            <p style="margin: 0; white-space: pre-line;">안녕하세요. 시니어비즈온입니다.
+                자영업지도사 자격에 관심이 있거나 시험을 준비하고 계신 분들을 위해 <strong>응시 안내 신청</strong>을 받고 있습니다.
+                자격 정보와 시험 과목을 살펴보고, 응시 조건과 준비 절차 등 궁금한 내용을 안내받아 보세요.</p>
+            <h2 style="margin: clamp(48px, 6vw, 88px) 0 24px; color: var(--gray-600, #252D2C); font-size: var(--text-28, clamp(1.25rem, 3vw, 1.75rem)); font-weight: var(--bold, 700); line-height: 1.4;">자영업지도사란?</h2>
+            <p style="margin: 0 0 32px;">자영업지도사는 창업 준비와 가게 운영에 필요한 정책·금융·세무 등의 기초 지식을 바탕으로 자영업 활동을 안내하고 지원하는 등록민간자격입니다.</p>
+            <p style="margin: 0;"><strong>상시 모집</strong>으로 응시 안내 신청을 받고 있습니다.</p>
+            <ol style="margin: 0; padding-inline-start: 1.5em; list-style: decimal outside;">
+                <li style="list-style: inherit;"><strong>응시 안내 신청하기</strong> 버튼을 눌러주세요.</li>
+                <li style="list-style: inherit;">이름과 연락처, 궁금한 내용을 남겨주세요.</li>
+                <li style="list-style: inherit;">담당자가 신청 내용을 확인한 뒤 시험 정보와 준비 절차를 안내해 드립니다.</li>
+            </ol>
+            <h2 style="margin: clamp(48px, 6vw, 88px) 0 24px; color: var(--gray-600, #252D2C); font-size: var(--text-28, clamp(1.25rem, 3vw, 1.75rem)); font-weight: var(--bold, 700); line-height: 1.4;">신청 전 확인해 주세요</h2>
+            <ul style="margin: 0 0 32px; padding-inline-start: 1.5em; list-style: disc outside;">
+                <li style="list-style: inherit;">이 신청은 <strong>시니어비즈온의 응시 안내 신청</strong>입니다. 실제 시험 원서접수는 협회가 안내하는 공식 절차에 따라 별도로 진행해 주세요.</li>
+                <li style="list-style: inherit;">시험 일정과 응시 조건, 비용 등은 해당 회차의 공식 공고를 기준으로 확인해 주세요.</li>
+                <li style="list-style: inherit;">자영업지도사는 등록민간자격이며, 국가공인 자격은 아닙니다.</li>
+            </ul>
+            <p style="margin: 0;">궁금한 점을 남겨주시면 준비의 첫걸음부터 안내해 드리겠습니다.</p>
+        </div>
+        <div class="tags">
+            <a href="/news/notices?sWhere=@Uri.EscapeDataString(tag)">@tag</a>
+        </div>
+        <ul class="notice_neighbors" aria-label="이전 글과 다음 글">
+            <li class="notice_neighbor notice_neighbor_previous">
+                <a href="#!" data-unavailable aria-disabled="true">
+                    <span class="notice_neighbor_icon" role="img" aria-label="이전 글">
+                        <span class="arrow" aria-hidden="true"></span>
+                    </span>
+                    <div>
+                        <p class="notice_neighbor_title">시니어비즈온 창업교육 과목별 상시 신청 안내</p>
+                        <time datetime="2026-11-13">2026년 11월 13일</time>
+                    </div>
+                </a>
+            </li>
+            <li class="notice_neighbor">
+                <a href="#!" data-unavailable aria-disabled="true">
+                    <span class="notice_neighbor_icon" role="img" aria-label="다음 글">
+                        <span class="arrow" aria-hidden="true"></span>
+                    </span>
+                    <div>
+                        <p class="notice_neighbor_title">공지사항 제목을 입력해 주세요</p>
+                        <time datetime="2026-11-13">2026년 11월 13일</time>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="center_action">
+            <a class="action_btn" href="/news/notices">
+                목록으로
+                <span class="arrow arrow_gray" aria-hidden="true"></span>
+            </a>
+        </div>
+    </article>
+</main>
